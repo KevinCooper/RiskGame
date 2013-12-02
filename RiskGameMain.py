@@ -5,13 +5,27 @@
 @class: CS 359
 '''
 
-import pygame
-from CustomExceptionList import *
+import CustomExceptionList as CEL
+import RiskGUI
 
 if __name__ == '__main__':
     try:
-        pygame.init()
-        raise DetailedException("Test")
-    except DetailedException as EO:
+        GameScreen = RiskGUI.RiskGUI()
+    except CEL.DetailedException as EO:
         EO.handleItself()
+    
+    
+    while True:
+        event = GameScreen.getEvent()[0]
+        if event == "Exit":
+            break
         
+       
+    
+    
+    
+    
+    
+    
+    
+    exit(0)

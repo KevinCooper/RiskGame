@@ -7,7 +7,7 @@
 
 class AbstractBaseException(Exception):
     def handleItself(self):
-        pass
+        print("An unknown exception occurred")
 
 class DetailedException(AbstractBaseException):
     
@@ -15,5 +15,9 @@ class DetailedException(AbstractBaseException):
         self.msg = msg
         
     def handleItself(self):
-        print("The error that occurred is described by: %r" %(self.msg))
-        
+       if type(self.msg) is string:
+            print("The error that occurred is described by: %s" %(self.msg))
+       elif type(self.msg) is int:
+            print("The error that occurred is described by: %d" %(self.msg))
+       else:
+            print("The error that occurred is described by: %r" %(self.msg))
