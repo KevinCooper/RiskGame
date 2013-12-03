@@ -9,32 +9,43 @@ import ctypes
 class RiskGUI(object):
 
     def __init__(self):
-        #Reference for screen width/height
-        #http://stackoverflow.com/questions/3129322/how-do-i-get-monitor-resolution-in-python
+        '''Reference for screen width/height
+        http://stackoverflow.com/questions/3129322/how-do-i-get-monitor-resolution-in-python'''
         user32 = ctypes.windll.user32
         screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
-        print screensize  
-        #End Reference
+        '''End Reference'''
         pygame.init()
         self.size = self.width, self.height = screensize[0], screensize[1]
         #Draws the board
         self.screen = pygame.display.set_mode(self.size)
+        self.black = 0, 0, 0
+        self.screen.fill(self.black)
     
     def updateRegion(self):
         pass
-    def drawBoard(self):
+    def drawBoard(self, board):
         pass
     def battleSequence(self, Agressor, Defender):
         pass
     def getEvent(self):
-        event = pygame.event.get()
-                
-        for event in pygame.event.get():
-                if event.type == pygame.QUIT: 
-                    return ("Exit")
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-                    return ("SpaceBar")
-        return ("None")
+        #It should not return from this loop unless some scripted event occurs
+        while True:            
+            for event in pygame.event.get():
+                #Handle key events
+                if event.type == pygame.KEYUP: 
+                    if event.key == pygame.K_ESCAPE:
+                        return ("Exit")
+                    if  event.key == pygame.K_SPACE:
+                        return ("SpaceBar")  
+                #Handle mouse events    
+                if event.type == pygame.MOUSEBUTTONUP:
+                    mousex, mousey = event.pos
+                    print event.button
+                    if event.button == 1:
+                        return ("Left", mousex, mousey)
+                    if event.button == 3:
+                        return ("Right", mousex, mousey)
+
     
 
         
