@@ -1,6 +1,6 @@
 '''
 @author: Kevin Cooper
-@version: 0.0.0
+@version: 0.0.1
 @date: 01 Dec 13
 @class: CS 359
 '''

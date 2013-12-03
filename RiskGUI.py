@@ -1,7 +1,8 @@
 '''
-Created on Dec 2, 2013
-
-@author: C15Kevin.Cooper
+@author: Kevin Cooper
+@version: 0.0.1
+@date: 01 Dec 13
+@class: CS 359
 '''
 import pygame
 import ctypes
