@@ -7,18 +7,19 @@
 
 import CustomExceptionList as CEL
 import RiskGUI
+import RiskBoard
 
 if __name__ == '__main__':
     try:
         GameScreen = RiskGUI.RiskGUI()
     except CEL.DetailedException as EO:
         EO.handleItself()
-    
-    
+    board = RiskBoard.RiskBoard()
     while True:
-        event = GameScreen.getEvent()[0]
+        event = GameScreen.getEvent()
         if event == "Exit":
             break
+        print event
         
        
     
