@@ -8,18 +8,22 @@
 import CustomExceptionList as CEL
 import RiskGUI
 import RiskBoard
-
+import pygame
 if __name__ == '__main__':
     try:
         GameScreen = RiskGUI.RiskGUI()
     except CEL.DetailedException as EO:
         EO.handleItself()
     board = RiskBoard.RiskBoard()
+    GameScreen.drawBoard(board)
+    pygame.display.flip()
     while True:
-        event = GameScreen.getEvent()
+        event = GameScreen.getEvent(board)
+        print event
         if event == "Exit":
             break
-        print event
+        if event == "Region":
+            print event
         
        
     

@@ -12,23 +12,28 @@ class RiskGUI(object):
     def __init__(self):
         '''Reference for screen width/height
         http://stackoverflow.com/questions/3129322/how-do-i-get-monitor-resolution-in-python'''
-        user32 = ctypes.windll.user32
-        screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
+        #user32 = ctypes.windll.user32
+        #screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
         '''End Reference'''
         pygame.init()
-        self.size = self.width, self.height = screensize[0], screensize[1]
+        #self.size = self.width, self.height = screensize[0], screensize[1]
+        self.size = (640,480)
         #Draws the board
         self.screen = pygame.display.set_mode(self.size)
+        self.white = 255, 255, 255
         self.black = 0, 0, 0
-        self.screen.fill(self.black)
+        self.screen.fill(self.white)
     
-    def updateRegion(self):
+    def updateRegion(self, board, region):
         pass
     def drawBoard(self, board):
-        pass
+        for region in board.getRegions():
+            region[1].draw(self.screen)
+            for neighbor in board.getNeighbors(region[0]):
+                pygame.draw.line(self.screen, self.black, neighbor.getCenterPosition(), region[1].getCenterPosition(), 2)
     def battleSequence(self, Agressor, Defender):
         pass
-    def getEvent(self):
+    def getEvent(self, board):
         #It should not return from this loop unless some scripted event occurs
         while True:            
             for event in pygame.event.get():
@@ -43,9 +48,13 @@ class RiskGUI(object):
                     mousex, mousey = event.pos
                     print event.button
                     if event.button == 1:
-                        return ("Left", mousex, mousey)
+                        for region in board.getRegions():
+                            if(region[1].wasClicked(mousex, mousey)):
+                                return ("Region","Left", region)
                     if event.button == 3:
-                        return ("Right", mousex, mousey)
+                        for region in board.getRegions():
+                            if(region[1].wasClicked(mousex, mousey)):
+                                return ("Region","Right", region)
 
     
 
