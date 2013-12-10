@@ -12,7 +12,7 @@ class Region(object):
     def __init__(self, image, player, units, name, position):
         self.image = image
         self.name = name
-        self.player = None
+        self.player = player
         self.units = 0
         self.position = position 
         
@@ -25,18 +25,25 @@ class Region(object):
     def setPlayer(self, player):
         self.player = player
         
+    def getPlayer(self):
+        return self.player
+        
     def addUnits(self, number):
         self.units += number
+        
+    def getUnits(self):
+        return self.units
         
     def getName(self):
         return self.name
     
     def draw(self, screen):
-        screen.blit(self.image, self.position)
+        pygame.draw.circle(screen, self.player.getColor(), self.getCenterPosition(), 10, 0)
+        # screen.blit(self.image, self.position)
         
     def getCenterPosition(self):
         # ADD 10,10 because circle of radius 10!!
-        return (self.position[0]+10, self.position[1]+10)
+        return (self.position[0] + 10, self.position[1] + 10)
 
     def wasClicked(self, mouseX, mouseY):
         
@@ -44,17 +51,20 @@ class Region(object):
             CEL.DetailedException("A mouse event was called on a region with a mouse value that was less than zero.")
             
         try:
-            if (math.fabs( mouseX-self.position[0])<20 and math.fabs( mouseY-self.position[1])<20):
+            if (math.fabs(mouseX - self.position[0]) < 20 and math.fabs(mouseY - self.position[1]) < 20):
                 return True
             else:
                 return False
         except Exception as e:
-            print("Error in the wasClicked method:\n %s" %(e.message))
+            print("Error in the wasClicked method:\n %s" % (e.message))
+            
+    def canMove(self):
+        return self.units > 1
             
     
     def removeUnits(self, numberToRemove):
         try:
-            if(self.units - numberToRemove <0):
+            if(self.units - numberToRemove < 0):
                 raise CEL.TooFewPiecesException
             self.units -= numberToRemove
         except CEL.TooFewPiecesException as error:

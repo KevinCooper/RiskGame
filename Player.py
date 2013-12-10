@@ -8,14 +8,20 @@ import Card
 import CustomExceptionList as CEL
 
 class Player:
-    def __init__(self, color, order, pieces):
+    def __init__(self, color, pieces, name):
         self.color = color
-        self.order = order
         self.pieces = pieces
+        self.name = name
         self.cards = []
+        
+    def __str__(self):
+        return self.name
         
     def getPieces(self):
         return self.pieces
+    
+    def getColor(self):
+        return self.color
     
     def addCard(self, card):
         self.cards.append(card)
