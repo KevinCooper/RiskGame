@@ -1,6 +1,6 @@
 '''
 @author: Kevin Cooper
-@version: 0.0.1
+@version: 0.0.2
 @date: 01 Dec 13
 @class: CS 359
 '''
@@ -32,6 +32,9 @@ class Region(object):
         
     def addUnits(self, number):
         self.units += number
+        
+    def subUnits(self, number):
+        self.units -= number
         
     def validMove(self, player):
         return self.player == player
@@ -67,6 +70,8 @@ class Region(object):
             print("Error in the wasClicked method:\n %s" % (e.message))
             
     def canMove(self):
+        return self.units > 1
+    def canAttack(self):
         return self.units > 1
             
     

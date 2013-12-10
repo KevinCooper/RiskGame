@@ -1,6 +1,6 @@
 '''
 @author: Kevin Cooper
-@version: 0.0.1
+@version: 0.0.2
 @date: 01 Dec 13
 @class: CS 359
 '''
@@ -27,6 +27,9 @@ class RiskGUI(object):
         self.green = 0, 255, 0
         self.screen.fill(self.white)
         self.font = pygame.font.SysFont("monospace", 15)
+        
+    def clearScreen(self):
+        self.screen.fill(self.white)
     
     def updateRegion(self, board, region):
         pygame.display.flip()
@@ -34,20 +37,28 @@ class RiskGUI(object):
     
     def drawBoard(self, board):
         for region in board.getRegions():
-            region[1].draw(self.screen)
             for neighbor in board.getNeighbors(region[0]):
                 pygame.draw.line(self.screen, self.black, neighbor.getCenterPosition(), region[1].getCenterPosition(), 1)
+            region[1].draw(self.screen)
             self.screen.blit(self.font.render(str(region[1].getUnits()), 1, self.black), (region[1].getCenterPosition()[0]+10,region[1].getCenterPosition()[1]-10 ))
         pygame.display.flip()
         
     def drawTurn(self, board, player):
         self.screen.blit(self.font.render(str(player), 1, self.black), (10, 10))
+        self.screen.blit(self.font.render("Press ESC to quit.", 1, self.black), (10, 25))
         pygame.display.flip()
                 
                 
-    def battleSequence(self, AgressorRegion, DefenderRegion):
-        pass
+    def battleSequence(self, AgressorRegion, DefenderRegion, Dice):
+        if(AgressorRegion.canAttack()):
+            #Fancy animations here
+            pass
     
+    def moveSequence(self, sourceRegion, destRegion):
+        if(sourceRegion.canMove()):
+            sourceRegion.subUnits(1)
+            destRegion.addUnits(1)
+            #Fancy animation here
     
     def getEvent(self, board):
         # It should not return from this loop unless some scripted event occurs
@@ -56,9 +67,9 @@ class RiskGUI(object):
                 # Handle key events
                 if event.type == pygame.KEYUP: 
                     if event.key == pygame.K_ESCAPE:
-                        return ("Exit")
+                        return ("Exit", "Junk")
                     if  event.key == pygame.K_SPACE:
-                        return ("SpaceBar")  
+                        return ("SpaceBar", "Junk")  
                 # Handle mouse events    
                 if event.type == pygame.MOUSEBUTTONUP:
                     mousex, mousey = event.pos

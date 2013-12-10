@@ -1,7 +1,8 @@
 '''
-Created on Dec 2, 2013
-
-@author: C15JREYNOR
+@author: Kevin Cooper
+@version: 0.0.2
+@date: 01 Dec 13
+@class: CS 359
 '''
 import Region
 import networkx as nx
