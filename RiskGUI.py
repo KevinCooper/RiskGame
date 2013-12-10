@@ -19,14 +19,14 @@ class RiskGUI(object):
         # self.size = self.width, self.height = screensize[0], screensize[1]
         self.size = (1024, 768)
         # Draws the board
-        self.screen = pygame.display.set_mode(self.size)
-        self.white = 255, 255, 255
-        self.black = 0, 0, 0
-        self.red = 255, 0, 0
-        self.blue = 0, 0, 255
-        self.green = 0, 255, 0
+        self.screen         = pygame.display.set_mode(self.size)
+        self.white          = 255, 255, 255
+        self.black          = 0, 0, 0
+        self.red            = 255, 0, 0
+        self.blue           = 0, 0, 255
+        self.green          = 0, 255, 0
+        self.font           = pygame.font.SysFont("monospace", 15)
         self.screen.fill(self.white)
-        self.font = pygame.font.SysFont("monospace", 15)
         
         
     def clearScreen(self):
@@ -50,6 +50,10 @@ class RiskGUI(object):
             if(Dice.rollDice()>Dice.rollDice()):
                 DefenderRegion.setAnimate()
                 DefenderRegion.subUnits(1)
+                if(DefenderRegion.getUnits() == 0):
+                    DefenderRegion.setPlayer(AgressorRegion.getPlayer())
+                    DefenderRegion.addUnits(1)
+                    AgressorRegion.subUnits(1)
             else:
                 AgressorRegion.setAnimate()
                 AgressorRegion.subUnits(1)

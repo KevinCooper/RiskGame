@@ -9,43 +9,43 @@ import CustomExceptionList as CEL
 
 class Player:
     def __init__(self, color, pieces, name):
-        self.color = color
-        self.pieces = pieces
-        self.name = name
-        self.cards = []
+        self._color = color
+        self._pieces = pieces
+        self._name = name
+        self._cards = []
         
     def __str__(self):
-        return self.name
+        return self._name
         
     def getPieces(self):
-        return self.pieces
+        return self._pieces
     
     def getColor(self):
-        return self.color
+        return self._color
     
     def addCard(self, card):
-        self.cards.append(card)
+        self._cards.append(card)
         
     def getCards(self):
-        for item in self.cards:
-            yield self.cards[item]
+        for item in self._cards:
+            yield self._cards[item]
             
     def removeCard(self, card):
         try:
-            if(self.cards == []):
+            if(self._cards == []):
                 raise CEL.TooFewCardsException
-            self.cards.remove(card)
+            self._cards.remove(card)
         except CEL.TooFewCardsException as error:
             error.handleItself()
             
     def addPieces(self, numberToAdd):
-        self.pieces += numberToAdd
+        self._pieces += numberToAdd
         
     def removePieces(self, numberToLose):
         try:
-            if(self.pieces - numberToLose < 0):
+            if(self._pieces - numberToLose < 0):
                 CEL.TooFewPiecesException
-            self.pieces -= numberToLose
+            self._pieces -= numberToLose
         except CEL.TooFewPiecesException as error:
             error.handleItself()
             

@@ -8,8 +8,8 @@ import random
 import os
 class Dice:
     def __init__(self, sides):
-        self.sides = sides
+        self._sides = sides
         random.seed(os.urandom(16)) #You bet we want to be random
     def rollDice(self):
-        return random.randint(1, self.sides)
+        return random.randint(1, self._sides)
         

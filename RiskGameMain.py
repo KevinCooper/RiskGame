@@ -13,7 +13,7 @@ import random
 import Dice
 if __name__ == '__main__':
     GameScreen = RiskGUI.RiskGUI()  
-    board = RiskBoard.RiskBoard()  
+    board = RiskBoard.RiskBoard(GameScreen.size)  
     clock = pygame.time.Clock()
     dice = Dice.Dice(6)
     # Setup two players for testing
