@@ -7,11 +7,10 @@
 import Region
 import networkx as nx
 import CustomExceptionList as CEL
-import pygame
 class RiskBoard:
     
     def __init__(self):
-        regionPicture = pygame.image.load("circle.png").convert()
+        regionPicture = "circle.png"
         self.graph = nx.Graph()
         self.regions = {}
         self.regions["Center"] = Region.Region(image=regionPicture, player=None, units=0, name="Center", position=(500, 300))  

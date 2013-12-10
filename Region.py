@@ -7,14 +7,20 @@
 import CustomExceptionList as CEL
 import pygame
 import math
+import os
+import AnimatedSprite
 class Region(object):
 
     def __init__(self, image, player, units, name, position):
-        self.image = image
+        self.image = pygame.image.load(os.path.join('resources', image)).convert()
         self.name = name
         self.player = player
         self.units = 0
         self.position = position 
+        self.animated = AnimatedSprite.AnimatedSprite(self.load_sliced_sprites(16, 16, 'explosions-sprite.png'), self.position)
+        self._animated_pos = 0
+        self._animated_len = len(self.load_sliced_sprites(16, 16, 'explosions-sprite.png'))
+        self.animate = False
         
     def __eq__(self, otherRegion):
         if(otherRegion == None):
@@ -47,6 +53,19 @@ class Region(object):
         
     def getName(self):
         return self.name
+    
+    def setAnimate(self):
+        self.animate = True
+        
+    def update(self, time, screen):
+        if(self.animate == True):
+            self.animated.update(time)
+            self.animated.render(screen)
+            self._animated_pos += 1
+            if(self._animated_pos == self._animated_len):
+                _animated_pos = 1
+                self.animate = False
+            
     
     def draw(self, screen):
         pygame.draw.circle(screen, self.player.getColor(), self.getCenterPosition(), 10, 0)
@@ -82,4 +101,20 @@ class Region(object):
             self.units -= numberToRemove
         except CEL.TooFewPiecesException as error:
             error.handleItself()
+            
+    def load_sliced_sprites(self, w, h, filename):
+        # http://shinylittlething.com/2009/07/21/pygame-and-animated-sprites/
+        '''
+        Specs :
+            Master can be any height.
+            Sprites frames width must be the same width
+            Master width must be len(frames)*frame.width
+        Assuming you resources directory is named "resources"
+        '''
+        images = []
+        master_image = pygame.image.load(os.path.join('resources', filename)).convert_alpha()
+        master_width, master_height = master_image.get_size()
+        for i in xrange(int(master_width/w)):
+            images.append(master_image.subsurface((i*w,0,w,h)))
+        return images
             

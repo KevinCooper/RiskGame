@@ -5,7 +5,6 @@
 @class: CS 359
 '''
 
-import CustomExceptionList as CEL
 import RiskGUI
 import RiskBoard
 import pygame
@@ -15,6 +14,7 @@ import Dice
 if __name__ == '__main__':
     GameScreen = RiskGUI.RiskGUI()  
     board = RiskBoard.RiskBoard()  
+    clock = pygame.time.Clock()
     dice = Dice.Dice(6)
     # Setup two players for testing
     players = []
@@ -36,34 +36,41 @@ if __name__ == '__main__':
     pygame.display.flip()  # update the screen
     source = None
     while True:
-        GameScreen.clearScreen()
+        #All manual events here
+        for event in pygame.event.get():
+            GameScreen.clearScreen()
+            # Ensure that the current player is capable of making a move
+            count = 0
+            while(board.hasValidMove(players[order]) != True):
+                order = (order + 1) % (len(players))
+                count = count + 1
+                if(count == len(players)):
+                    exit(1) # None of the players has a valid move
+            gotEvent = GameScreen.resolveEvent(board, event)
+            # print event
+            if (gotEvent == None):
+                pass
+            elif (gotEvent[0] == "Exit"):
+                exit(0)
+            elif (gotEvent[0] == "Region"):
+                print gotEvent
+                if(gotEvent[1] == "Left"):
+                    if(gotEvent[2][1].getPlayer() == players[order]and source == None):
+                        source = gotEvent[2][1]
+                    elif(gotEvent[2][1].validAttack(players[order]) and source != None):
+                        GameScreen.battleSequence(source,gotEvent[2][1], dice)
+                        source = None
+                    elif(gotEvent[2][1].validMove(players[order]) and source != None and source != gotEvent[2][1]):
+                        GameScreen.moveSequence(source,gotEvent[2][1])
+                        source = None
+                    else:
+                        source = None
+        #All clock based events move down here         
         GameScreen.drawBoard(board)
-        # Ensure that the current player is capable of making a move
-        count = 0
-        while(board.hasValidMove(players[order]) != True):
-            order = (order + 1) % (len(players))
-            count = count + 1
-            if(count == len(players)):
-                exit(1) # None of the players has a valid move
-        GameScreen.drawTurn(board, str(players[order]) + " turn!")     
-                     
-        event = GameScreen.getEvent(board)
-        
-        # print event
-        if event[0] == "Exit":
-            break
-        if event[0] == "Region":
-            print event
-            if(event[1] == "Left"):
-                if(event[2][1].getPlayer() == players[order]and source == None):
-                    source = event[2][1]
-                elif(event[2][1].validAttack(players[order]) and source != None):
-                    GameScreen.battleSequence(source,event[2][1], dice)
-                    source = None
-                elif(event[2][1].validMove(players[order]) and source != None and source != event[2][1]):
-                    GameScreen.moveSequence(source,event[2][1])
-                    source = None
-            else:
-                source = None
+        GameScreen.drawTurn(board, str(players[order]) + " turn!")  
+        time = clock.tick(100) #Slow down the clock 1000/100 = 10 FPS
+        for region in board.getRegions():
+            region[1].update(time, GameScreen.screen)        
+        pygame.display.flip()
 
     exit(0)
