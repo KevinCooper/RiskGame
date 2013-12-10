@@ -39,11 +39,21 @@ class RiskBoard:
             raise CEL.DetailedException("Get _regions was called on a board that had no _regions!")
         
     def getNeighbors(self, region):
-        return self._graph.neighbors(self._regions[region])
+        if region != None:
+            return self._graph.neighbors(self._regions[region])
+    
+    def areNeighbors(self, region1, region2):
+        if region1 != None and region2 != None:
+            neighbors = self._graph.neighbors(region1)
+            for region in neighbors:
+                if(region == region2):
+                    return True
+            return False
     
     def hasValidMove(self, player):
-        for region in self._regions:
-            if(self._regions[region].getPlayer() == player and self._regions[region].canMove()):
-                return True
+        if player != None:
+            for region in self._regions:
+                if(self._regions[region].getPlayer() == player and self._regions[region].canMove()):
+                    return True
         return False
         

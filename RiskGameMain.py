@@ -59,19 +59,19 @@ if __name__ == '__main__':
     players.append(two)
     order = 0
     for region in board.getRegions():
-        test = random.randint(1,2)
+        test = random.randint(1, 2)
         if(test == 1):
             region[1].setPlayer(players[0])
         else:
             region[1].setPlayer(players[1])
         region[1].addUnits(2)
     
-    #Setup for main game logic loop
+    # Setup for main game logic loop
     GameScreen.drawBoard(board)
     pygame.display.flip()  # update the screen
     source = None
     while True:
-        #All manual events here
+        # All manual events here
         GameScreen.clearScreen()
         for event in pygame.event.get():
             # Ensure that the current player is capable of making a move
@@ -81,7 +81,7 @@ if __name__ == '__main__':
                 count = count + 1
                 if(count == len(players)):
                     print("There are no possible moves left!")
-                    exit(1) # None of the players has a valid move
+                    exit(1)  # None of the players has a valid move
             gotEvent = GameScreen.resolveEvent(board, event)
             # print event
             if (gotEvent == None):
@@ -90,17 +90,17 @@ if __name__ == '__main__':
                 exit(0)
             elif (gotEvent[0] == "SpaceBar"):
                 order = (order + 1) % (len(players))
-                players[order].addPieces(5) #Change this to be dynamic later!!!!!
+                players[order].addPieces(5)  #Change this to be dynamic later!!!!!
             elif (gotEvent[0] == "Region"):
-                #print gotEvent
+                # print gotEvent
                 if(gotEvent[1] == "Left"):
                     if(gotEvent[2][1].getPlayer() == players[order]and source == None):
                         source = gotEvent[2][1]
-                    elif(gotEvent[2][1].validAttack(players[order]) and source != None):
-                        GameScreen.battleSequence(source,gotEvent[2][1], dice)
+                    elif(gotEvent[2][1].validAttack(players[order]) and source != None and source != gotEvent[2][1] and board.areNeighbors(source, gotEvent[2][1])):
+                        GameScreen.battleSequence(source, gotEvent[2][1], dice)
                         source = None
-                    elif(gotEvent[2][1].validMove(players[order]) and source != None and source != gotEvent[2][1]):
-                        GameScreen.moveSequence(source,gotEvent[2][1])
+                    elif(gotEvent[2][1].validMove(players[order]) and source != None and source != gotEvent[2][1] and board.areNeighbors(source, gotEvent[2][1])):
+                        GameScreen.moveSequence(source, gotEvent[2][1])
                         source = None
                     else:
                         source = None
@@ -108,10 +108,10 @@ if __name__ == '__main__':
                     if(gotEvent[2][1].getPlayer() == players[order]):
                         if(players[order].removePieces(1)):
                             gotEvent[2][1].addUnits(1)
-        #All clock based events move down here         
+        # All clock based events move down here         
         GameScreen.drawBoard(board)
         GameScreen.drawTurn(board, str(players[order]) + " turn!", players[order].getPieces())  
-        time = clock.tick(1000) #Slow down the clock 1000/100 = 10 FPS
+        time = clock.tick(1000)  # Slow down the clock 1000/100 = 10 FPS
         for region in board.getRegions():
             region[1].update(time, GameScreen.screen)        
         pygame.display.flip()
