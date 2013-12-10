@@ -33,10 +33,8 @@ if __name__ == '__main__':
     GameScreen.drawBoard(board)
     pygame.display.flip()  # update the screen
     
-
-    
-    
     while True:
+        GameScreen.drawBoard(board)
         # Ensure that the current player is capable of making a move
         count = 0
         while(board.hasValidMove(players[order]) != True):
@@ -44,7 +42,8 @@ if __name__ == '__main__':
             count = count + 1
             if(count == len(players)):
                 exit(1) # None of the players has a valid move
-                          
+        GameScreen.drawTurn(board, str(players[order]) + " turn!")     
+                     
         event = GameScreen.getEvent(board)
         
         print event
@@ -52,13 +51,11 @@ if __name__ == '__main__':
             break
         if event == "Region":
             print event
-        
-       
-    
-    
-    
-    
-    
-    
-    
+            if(event[1] == "Left"):
+                pass
+            
+            
+            if(event[1] == "Right"):
+                pass
+
     exit(0)
