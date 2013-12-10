@@ -86,7 +86,7 @@ class RiskGUI(object):
                 for region in board.getRegions():
                     if(region[1].wasClicked(mousex, mousey)):
                         return ("Region", "Right", region)
-                    return ("Right", mousex, mousey)
+                return ("Right", mousex, mousey)
                         
 
     
