@@ -32,16 +32,13 @@ class RiskGUI(object):
     def clearScreen(self):
         self.screen.fill(self.white)
     
-    def updateRegion(self, board, region):
-        pygame.display.flip()
-        pass
-    
     def drawBoard(self, board):
         for region in board.getRegions():
             for neighbor in board.getNeighbors(region[0]):
                 pygame.draw.line(self.screen, self.black, neighbor.getCenterPosition(), region[1].getCenterPosition(), 1)
+        for region in board.getRegions(): 
             region[1].draw(self.screen)
-            self.screen.blit(self.font.render(str(region[1].getUnits()), 1, self.black), (region[1].getCenterPosition()[0]+10,region[1].getCenterPosition()[1]-10 ))
+            self.screen.blit(self.font.render(str(region[1].getUnits()), 1, self.black), (region[1].getCenterPosition()[0]+10,region[1].getCenterPosition()[1]-25 ))
         
     def drawTurn(self, board, player):
         self.screen.blit(self.font.render(str(player), 1, self.black), (10, 10))
