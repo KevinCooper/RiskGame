@@ -12,6 +12,7 @@ import Player
 import random
 import Dice
 import MenuStuff
+import os
 
 def menu(screen):
     myMenu = MenuStuff.Menu(("Start Game", "Quit"))
@@ -48,6 +49,8 @@ def menu(screen):
 if __name__ == '__main__':
     GameScreen = RiskGUI.RiskGUI()
     clock = pygame.time.Clock()
+    pygame.mixer.music.load(os.path.join('resources',"Daft Punk - Around the World.mp3"))
+    pygame.mixer.music.play(100)
     menu(GameScreen.screen)
     board = RiskBoard.RiskBoard(GameScreen.size)  
     dice = Dice.Dice(6)
