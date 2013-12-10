@@ -12,17 +12,17 @@ class AbstractBaseException(Exception):
         self.msg = msg
         
     def handleItself(self):
-        print("An unknown exception occurred: %r" %(self.msg))
+        print("An unknown exception occurred: %r" % (self.msg))
 
 class DetailedException(AbstractBaseException):
         
     def handleItself(self):
         if type(self.msg) is types.StringType:
-            print("The error that occurred is described by:\n %s" %(self.msg))
+            print("The error that occurred is described by:\n %s" % (self.msg))
         elif type(self.msg) is types.IntType:
-            print("The error that occurred is described by:\n %d" %(self.msg))
+            print("The error that occurred is described by:\n %d" % (self.msg))
         else:
-            print("The error that occurred is described by:\n %r" %(self.msg))
+            print("The error that occurred is described by:\n %r" % (self.msg))
 
 class TooFewPiecesException(AbstractBaseException):
     def handleItself(self):

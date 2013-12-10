@@ -10,5 +10,5 @@ class Dice:
         self.sides = sides
         random.seed(1)
     def rollDice(self):
-        return random.randint(1,self.sides)
+        return random.randint(1, self.sides)
         
