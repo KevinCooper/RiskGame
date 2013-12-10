@@ -28,11 +28,12 @@ if __name__ == '__main__':
         else:
             region[1].setPlayer(players[1])
         region[1].addUnits(2)
-    #
-
+    
+    #Setup for main game logic loop
     GameScreen.drawBoard(board)
     pygame.display.flip()  # update the screen
-    
+    sourceAttack = None
+    sourceMove = None
     while True:
         GameScreen.drawBoard(board)
         # Ensure that the current player is capable of making a move
@@ -46,16 +47,25 @@ if __name__ == '__main__':
                      
         event = GameScreen.getEvent(board)
         
-        print event
-        if event == "Exit":
+       # print event
+        if event[0] == "Exit":
             break
-        if event == "Region":
+        if event[0] == "Region":
             print event
             if(event[1] == "Left"):
-                pass
-            
-            
-            if(event[1] == "Right"):
-                pass
+                if(event[2][1].getPlayer() == players[order]and sourceAttack==None):
+                    sourceAttack = event[2][1]
+                    print "Got attack source"
+                elif(event[2][1].validAttack(players[order]) and sourceAttack != None):
+                    print "Got attack target"
+            elif(event[1] == "Right"):
+                if(event[2][1].getPlayer() == players[order]and sourceMove == None):
+                    sourceMove = event[2][1]
+                    print "Got move source"
+                elif(event[2][1].validMove(players[order]) and sourceMove != None):
+                    print "Got move target"
+            else:
+                sourceAttack = None
+                sourceMove = None
 
     exit(0)

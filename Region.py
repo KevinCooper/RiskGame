@@ -17,6 +17,8 @@ class Region(object):
         self.position = position 
         
     def __eq__(self, otherRegion):
+        if(otherRegion == None):
+            return None
         return otherRegion.getName() == self.name
     
     def __str__(self):

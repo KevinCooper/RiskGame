@@ -62,7 +62,7 @@ class RiskGUI(object):
                 # Handle mouse events    
                 if event.type == pygame.MOUSEBUTTONUP:
                     mousex, mousey = event.pos
-                    print event.button
+                    #print event.button
                     if event.button == 1:
                         for region in board.getRegions():
                             if(region[1].wasClicked(mousex, mousey)):
