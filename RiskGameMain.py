@@ -106,8 +106,8 @@ if __name__ == '__main__':
                         source = None
                 elif(gotEvent[1] == "Right"):
                     if(gotEvent[2][1].getPlayer() == players[order]):
-                        players[order].removePieces(1)
-                        gotEvent[2][1].addUnits(1)
+                        if(players[order].removePieces(1)):
+                            gotEvent[2][1].addUnits(1)
         #All clock based events move down here         
         GameScreen.drawBoard(board)
         GameScreen.drawTurn(board, str(players[order]) + " turn!", players[order].getPieces())  

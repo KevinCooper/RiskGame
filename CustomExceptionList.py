@@ -26,8 +26,8 @@ class DetailedException(AbstractBaseException):
 
 class TooFewPiecesException(AbstractBaseException):
     def handleItself(self):
-        print("Too few pieces exception hit")
+        print("Too few pieces exception hit:\n %s", (self.message))
     
 class TooFewCardsException(AbstractBaseException):
     def handleItself(self):
-        print("Too few cards exception hit")
+        print("Too few cards exception hit\n %s", (self.message))

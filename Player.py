@@ -42,15 +42,7 @@ class Player:
         self._pieces += numberToAdd
         
     def removePieces(self, numberToLose):
-        try:
-            if(self._pieces - numberToLose < 0):
-                CEL.TooFewPiecesException
-            self._pieces -= numberToLose
-        except CEL.TooFewPiecesException as error:
-            error.handleItself()
-            
-        
-        
-            
-    
-        
+        if(self._pieces - numberToLose < 0):
+            return False
+        self._pieces -= numberToLose
+        return True
