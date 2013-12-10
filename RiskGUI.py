@@ -41,9 +41,10 @@ class RiskGUI(object):
             region[1].draw(self.screen)
             self.screen.blit(self.font.render(str(region[1].getUnits()), 1, self.black), (region[1].getCenterPosition()[0]+10,region[1].getCenterPosition()[1]-25 ))
         
-    def drawTurn(self, board, player):
+    def drawTurn(self, board, player, pieces):
         self.screen.blit(self.font.render(str(player), 1, self.black), (10, 10))
-        self.screen.blit(self.font.render("Press ESC to quit.", 1, self.black), (10, 25))
+        self.screen.blit(self.font.render("You can place this many pieces: " + str(pieces), 1, self.black), (10, 25))
+        self.screen.blit(self.font.render("Press ESC to quit.", 1, self.black), (10, 40))
                 
                 
     def battleSequence(self, AgressorRegion, DefenderRegion, Dice):
