@@ -1,0 +1,11 @@
+.project
+.pydevproject
+AnimatedSprite.pyc
+Card.pyc
+CustomExceptionList.pyc
+Dice.pyc
+MenuStuff.pyc
+Player.pyc
+Region.pyc
+RiskBoard.pyc
+RiskGUI.pyc
