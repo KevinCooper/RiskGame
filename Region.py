@@ -31,6 +31,12 @@ class Region(object):
     def addUnits(self, number):
         self.units += number
         
+    def validMove(self, player):
+        return self.player == player
+    
+    def validAttack(self, player):
+        return self.player != player
+    
     def getUnits(self):
         return self.units
         

@@ -13,11 +13,11 @@ class RiskBoard:
         regionPicture = pygame.image.load("circle.png").convert()
         self.graph = nx.Graph()
         self.regions = {}
-        self.regions["Center"] = Region.Region(image=regionPicture, player=None, units=0, name="Center", position=(300, 300))  
+        self.regions["Center"] = Region.Region(image=regionPicture, player=None, units=0, name="Center", position=(500, 300))  
         self.regions["Left"] = Region.Region(image=regionPicture, player=None, units=0, name="Left", position=(50, 300))
-        self.regions["Top"] = Region.Region(image=regionPicture, player=None, units=0, name="Top", position=(300, 20))
-        self.regions["Right"] = Region.Region(image=regionPicture, player=None, units=0, name="Right", position=(500, 300))
-        self.regions["Bottom"] = Region.Region(image=regionPicture, player=None, units=0, name="Bottom", position=(300, 450))
+        self.regions["Top"] = Region.Region(image=regionPicture, player=None, units=0, name="Top", position=(500, 20))
+        self.regions["Right"] = Region.Region(image=regionPicture, player=None, units=0, name="Right", position=(900, 300))
+        self.regions["Bottom"] = Region.Region(image=regionPicture, player=None, units=0, name="Bottom", position=(500, 600))
         
         self.graph.add_node(self.regions["Center"])  # Center Region
         self.graph.add_node(self.regions["Left"])  # Left Region
