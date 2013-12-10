@@ -20,6 +20,7 @@ class RiskGUI(object):
         self.size = (1024, 768)
         # Draws the board
         self.screen         = pygame.display.set_mode(self.size)
+        pygame.display.set_caption("Kevin Cooper CS359 Project")
         self.white          = 255, 255, 255
         self.black          = 0, 0, 0
         self.red            = 255, 0, 0

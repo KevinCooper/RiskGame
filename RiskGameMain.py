@@ -11,10 +11,45 @@ import pygame
 import Player
 import random
 import Dice
+import MenuStuff
+
+def menu(screen):
+    myMenu = MenuStuff.Menu(("Start Game", "Quit"))
+    myMenu.drawMenu()
+    background = pygame.Surface(screen.get_size())
+    background = background.convert()
+    background.fill((0, 0, 0))
+    while 1:
+        clock.tick(60)
+
+    # Handle Input Events
+        for event in pygame.event.get():
+            myMenu.handleEvent(event)
+            # quit the game if escape is pressed
+            if event.type == pygame.QUIT:
+                return
+            elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                myMenu.activate()
+            elif event.type == myMenu.MENUCLICKEDEVENT:
+                if event.text == "Quit":
+                    exit(0)
+                elif event.item == 0:
+                    return
+        screen.blit(background, (0, 0))    
+        if myMenu.isActive():
+            myMenu.drawMenu()
+        else:
+            background.fill((0, 0, 0))
+               
+        
+        pygame.display.flip()
+
+
 if __name__ == '__main__':
-    GameScreen = RiskGUI.RiskGUI()  
-    board = RiskBoard.RiskBoard(GameScreen.size)  
+    GameScreen = RiskGUI.RiskGUI()
     clock = pygame.time.Clock()
+    menu(GameScreen.screen)
+    board = RiskBoard.RiskBoard(GameScreen.size)  
     dice = Dice.Dice(6)
     # Setup two players for testing
     players = []
@@ -54,7 +89,7 @@ if __name__ == '__main__':
             elif (gotEvent[0] == "Exit"):
                 exit(0)
             elif (gotEvent[0] == "Region"):
-                print gotEvent
+                #print gotEvent
                 if(gotEvent[1] == "Left"):
                     if(gotEvent[2][1].getPlayer() == players[order]and source == None):
                         source = gotEvent[2][1]
