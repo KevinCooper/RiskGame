@@ -37,14 +37,15 @@ if __name__ == '__main__':
     source = None
     while True:
         #All manual events here
+        GameScreen.clearScreen()
         for event in pygame.event.get():
-            GameScreen.clearScreen()
             # Ensure that the current player is capable of making a move
             count = 0
             while(board.hasValidMove(players[order]) != True):
                 order = (order + 1) % (len(players))
                 count = count + 1
                 if(count == len(players)):
+                    print("There are no possible moves left!")
                     exit(1) # None of the players has a valid move
             gotEvent = GameScreen.resolveEvent(board, event)
             # print event
@@ -68,7 +69,7 @@ if __name__ == '__main__':
         #All clock based events move down here         
         GameScreen.drawBoard(board)
         GameScreen.drawTurn(board, str(players[order]) + " turn!")  
-        time = clock.tick(100) #Slow down the clock 1000/100 = 10 FPS
+        time = clock.tick(1000) #Slow down the clock 1000/100 = 10 FPS
         for region in board.getRegions():
             region[1].update(time, GameScreen.screen)        
         pygame.display.flip()

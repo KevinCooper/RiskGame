@@ -5,10 +5,11 @@
 @class: CS 359
 '''
 import random
+import os
 class Dice:
     def __init__(self, sides):
         self.sides = sides
-        random.seed(1)
+        random.seed(os.urandom(16)) #You bet we want to be random
     def rollDice(self):
         return random.randint(1, self.sides)
         

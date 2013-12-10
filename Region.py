@@ -61,10 +61,10 @@ class Region(object):
         if(self.animate == True):
             self.animated.update(time)
             self.animated.render(screen)
-            self._animated_pos += 1
-            if(self._animated_pos == self._animated_len):
-                _animated_pos = 1
+            if(self._animated_pos >= self._animated_len):
+                _animated_pos = -1
                 self.animate = False
+            self._animated_pos += 1
             
     
     def draw(self, screen):
