@@ -88,6 +88,9 @@ if __name__ == '__main__':
                 pass
             elif (gotEvent[0] == "Exit"):
                 exit(0)
+            elif (gotEvent[0] == "SpaceBar"):
+                order = (order + 1) % (len(players))
+                players[order].addPieces(5) #Change this to be dynamic later!!!!!
             elif (gotEvent[0] == "Region"):
                 #print gotEvent
                 if(gotEvent[1] == "Left"):
@@ -101,9 +104,13 @@ if __name__ == '__main__':
                         source = None
                     else:
                         source = None
+                elif(gotEvent[1] == "Right"):
+                    if(gotEvent[2][1].getPlayer() == players[order]):
+                        players[order].removePieces(1)
+                        gotEvent[2][1].addUnits(1)
         #All clock based events move down here         
         GameScreen.drawBoard(board)
-        GameScreen.drawTurn(board, str(players[order]) + " turn!")  
+        GameScreen.drawTurn(board, str(players[order]) + " turn!", players[order].getPieces())  
         time = clock.tick(1000) #Slow down the clock 1000/100 = 10 FPS
         for region in board.getRegions():
             region[1].update(time, GameScreen.screen)        
