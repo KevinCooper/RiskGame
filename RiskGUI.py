@@ -1,6 +1,6 @@
 '''
 @author: Kevin Cooper
-@version: 0.0.2
+@version: 0.0.3
 @date: 01 Dec 13
 @class: CS 359
 '''
@@ -11,14 +11,15 @@ class RiskGUI(object):
     def __init__(self):
         self.size = (pygame.display.Info().current_w, pygame.display.Info().current_h)
         # Draws the board
-        self.screen         = pygame.display.set_mode(self.size, pygame.FULLSCREEN)
+        #self.size = (1024,768)
+        self.screen = pygame.display.set_mode(self.size, pygame.FULLSCREEN)
         pygame.display.set_caption("Kevin Cooper CS359 Project")
-        self.white          = 255, 255, 255
-        self.black          = 0, 0, 0
-        self.red            = 255, 0, 0
-        self.blue           = 0, 0, 255
-        self.green          = 0, 255, 0
-        self.font           = pygame.font.SysFont("monospace", 15)
+        self.white = 255, 255, 255
+        self.black = 0, 0, 0
+        self.red = 255, 0, 0
+        self.blue = 0, 0, 255
+        self.green = 0, 255, 0
+        self.font = pygame.font.SysFont("monospace", 15)
         self.screen.fill(self.white)
         
         
@@ -31,7 +32,7 @@ class RiskGUI(object):
                 pygame.draw.line(self.screen, self.black, neighbor.getCenterPosition(), region[1].getCenterPosition(), 1)
         for region in board.getRegions(): 
             region[1].draw(self.screen)
-            self.screen.blit(self.font.render(str(region[1].getUnits()), 1, self.black), (region[1].getCenterPosition()[0]+10,region[1].getCenterPosition()[1]-25 ))
+            self.screen.blit(self.font.render(str(region[1].getUnits()), 1, self.black), (region[1].getCenterPosition()[0] + 10, region[1].getCenterPosition()[1] - 25))
         
     def drawTurn(self, board, player, pieces):
         self.screen.blit(self.font.render(str(player), 1, self.black), (10, 10))
@@ -41,7 +42,7 @@ class RiskGUI(object):
                 
     def battleSequence(self, AgressorRegion, DefenderRegion, Dice):
         if(AgressorRegion.canAttack()):
-            if(Dice.rollDice()>Dice.rollDice()):
+            if(Dice.rollDice() > Dice.rollDice()):
                 DefenderRegion.setAnimate()
                 DefenderRegion.subUnits(1)
                 if(DefenderRegion.getUnits() == 0):
@@ -56,7 +57,7 @@ class RiskGUI(object):
         if(sourceRegion.canMove()):
             sourceRegion.subUnits(1)
             destRegion.addUnits(1)
-            #Fancy animation here
+            # Fancy animation here
     
     def resolveEvent(self, board, event):          
         # Handle key events
@@ -68,7 +69,7 @@ class RiskGUI(object):
         # Handle mouse events    
         if event.type == pygame.MOUSEBUTTONUP:
             mousex, mousey = event.pos
-            #print event.button
+            # print event.button
             if event.button == 1:
                 for region in board.getRegions():
                     if(region[1].wasClicked(mousex, mousey)):

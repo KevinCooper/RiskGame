@@ -1,6 +1,6 @@
 '''
 @author: Kevin Cooper
-@version: 0.0.2
+@version: 0.0.3
 @date: 01 Dec 13
 @class: CS 359
 '''
@@ -9,13 +9,12 @@ import RiskGUI
 import RiskBoard
 import pygame
 import Player
-import random
 import Dice
 import MenuStuff
 import os
 
-def menu(screen):
-    myMenu = MenuStuff.Menu(("Start Game", "Quit"))
+def menu(screen, options):
+    myMenu = MenuStuff.Menu(options)
     myMenu.drawMenu()
     background = pygame.Surface(screen.get_size())
     background = background.convert()
@@ -34,13 +33,8 @@ def menu(screen):
             elif event.type == myMenu.MENUCLICKEDEVENT:
                 if event.text == "Quit":
                     exit(0)
-                elif event.item == 0:
+                elif event.text == "Start Game":
                     return
-        screen.blit(background, (0, 0))    
-        if myMenu.isActive():
-            myMenu.drawMenu()
-        else:
-            background.fill((0, 0, 0))
                
         
         pygame.display.flip()
@@ -57,23 +51,25 @@ if __name__ == '__main__':
     pygame.init()
     GameScreen = RiskGUI.RiskGUI()
     clock = pygame.time.Clock()
-    menu(GameScreen.screen)
+    menu(GameScreen.screen, ("Start Game", "Quit"))
     board = RiskBoard.RiskBoard(GameScreen.size)  
     dice = Dice.Dice(6)
+    setupGameMusic(True)
     # Setup two players for testing
     players = []
-    one = Player.Player((255, 0, 0), 10, "Player 1")
-    two = Player.Player((0, 0, 255), 10, "Player 2")
+    one = Player.Player((255, 0, 0), 4, "Player 1")
+    two = Player.Player((0, 0, 255), 0, "Player 2")
     players.append(one)
     players.append(two)
     order = 0
+    playerPicker = 0
     for region in board.getRegions():
-        test = random.randint(1, 2)
-        if(test == 1):
+        playerPicker = (playerPicker +1)% len(players)
+        if(playerPicker == 1):
             region[1].setPlayer(players[0])
         else:
             region[1].setPlayer(players[1])
-        region[1].addUnits(2)
+        region[1].addUnits(3)
     
     # Setup for main game logic loop
     GameScreen.drawBoard(board)
