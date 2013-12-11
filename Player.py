@@ -74,4 +74,5 @@ class Player:
         '''
         if(self._pieces - numberToLose < 0):
             self._pieces = 0
-        self._pieces -= numberToLose
+        else:
+            self._pieces -= numberToLose
