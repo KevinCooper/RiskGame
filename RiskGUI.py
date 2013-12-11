@@ -17,43 +17,44 @@ class RiskGUI(object):
         Initializes the screen that will be used.  Starts the game in \
         fullscreen after determining the size of the screen from the computer.
         '''
+        ##The 2 item integer tuple that represents the screen size
         self.size = (pygame.display.Info().current_w, \
                      pygame.display.Info().current_h)
-        # Draws the board
-        #self.size = (1024,768)
+        ##Pygame display set to the size with fullscreen flags
         self.screen = pygame.display.set_mode(self.size, pygame.FULLSCREEN)
         pygame.display.set_caption("Kevin Cooper CS359 Project")
-        self.white = 255, 255, 255
-        self.black = 0, 0, 0
-        self.red = 255, 0, 0
-        self.blue = 0, 0, 255
-        self.green = 0, 255, 0
+        self._white = 255, 255, 255
+        self._black = 0, 0, 0
+        self._red = 255, 0, 0
+        self._blue = 0, 0, 255
+        self._green = 0, 255, 0
+        ##Pyagme sysfront, monospace, size 15
         self.font = pygame.font.SysFont("monospace", 15)
-        self.screen.fill(self.white)
+        self.screen.fill(self._white)
 
     def clearScreen(self):
         '''
-        Fills the screen with white.
+        Fills the screen with _white.
         '''
-        self.screen.fill(self.white)
+        self.screen.fill(self._white)
 
     def drawBoard(self, board):
         '''
         board - RiskBoard object
 
         Draws each of the Regions in the board onto the screen.  Also draws the\
-        edges for each of the nodes as black lines between the regions.
+        edges for each of the nodes as _black lines between the regions.
         '''
         for region in board.getRegions():
             for neighbor in board.getNeighbors(region[0]):
-                pygame.draw.line(self.screen, self.black, \
+                pygame.draw.line(self.screen, self._black, \
                                  neighbor.getCenterPosition(), \
                                  region[1].getCenterPosition(), 1)
         for region in board.getRegions():
             region[1].draw(self.screen)
             self.screen.blit(self.font.render(str(region[1].getUnits()),\
                                         1,\
-                                        self.black), \
+                                        self._black), \
                                         (region[1].getCenterPosition()[0] + 10,\
                                         region[1].getCenterPosition()[1] - 25))
 
@@ -66,9 +67,9 @@ class RiskGUI(object):
         Draws the information text onto the top left of the screen.\
         Information includes current player, and how many pieces left.
         '''
-        self.screen.blit(self.font.render(str(player), 1, self.black), (10, 10))
+        self.screen.blit(self.font.render(str(player), 1, self._black), (10, 10))
         self.screen.blit(self.font.render("You can place this many pieces: " +\
-                                          str(pieces), 1, self.black), (10, 25))
+                                          str(pieces), 1, self._black), (10, 25))
 
     def battleSequence(self, AgressorRegion, DefenderRegion, Dice):
         '''
