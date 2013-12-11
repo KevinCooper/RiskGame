@@ -67,9 +67,10 @@ class RiskGUI(object):
         Draws the information text onto the top left of the screen.\
         Information includes current player, and how many pieces left.
         '''
-        self.screen.blit(self.font.render(str(player), 1, self._black), (10, 10))
+        self.screen.blit(self.font.render(str(player), 1, self._black), \
+                         (10, 10))
         self.screen.blit(self.font.render("You can place this many pieces: " +\
-                                          str(pieces), 1, self._black), (10, 25))
+                                        str(pieces), 1, self._black), (10, 25))
 
     def battleSequence(self, AgressorRegion, DefenderRegion, Dice):
         '''
