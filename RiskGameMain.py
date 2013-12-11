@@ -87,6 +87,8 @@ if __name__ == '__main__':
                 if(count == len(players)):
                     print("There are no possible moves left!")
                     exit(1)  # None of the players has a valid move
+            if(board.getCountRegions(players[order]) == len(board.getRegions())):
+                menu(GameScreen.screen, (str(players[order]) + " Won!", "Quit")) #The player won!!!!!!
             gotEvent = GameScreen.resolveEvent(board, event)
             # print event
             if (gotEvent == None):
