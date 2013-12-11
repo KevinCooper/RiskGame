@@ -83,14 +83,14 @@ class RiskGUI(object):
         if(AgressorRegion.canAttack()):
             if(Dice.rollDice() > Dice.rollDice()):
                 DefenderRegion.setAnimate()
-                DefenderRegion.subUnits(1)
+                DefenderRegion.removeUnits(1)
                 if(DefenderRegion.getUnits() == 0):
                     DefenderRegion.setPlayer(AgressorRegion.getPlayer())
                     DefenderRegion.addUnits(1)
-                    AgressorRegion.subUnits(1)
+                    AgressorRegion.removeUnits(1)
             else:
                 AgressorRegion.setAnimate()
-                AgressorRegion.subUnits(1)
+                AgressorRegion.removeUnits(1)
 
     def moveSequence(self, sourceRegion, destRegion):
         '''
@@ -101,7 +101,7 @@ class RiskGUI(object):
         values for both of the Region objects
         '''
         if(sourceRegion.canMove()):
-            sourceRegion.subUnits(1)
+            sourceRegion.removeUnits(1)
             destRegion.addUnits(1)
             # Fancy animation here
 

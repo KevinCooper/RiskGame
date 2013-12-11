@@ -1,4 +1,3 @@
-# Documentation for this class http://shinylittlething.com/2009/07/21/pygame-and-animated-sprites/
 '''
 @purpose: This file provides the class for the implementation\
  of an animated sprite.

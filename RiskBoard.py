@@ -25,21 +25,35 @@ class RiskBoard:
         '''
         self._graph = nx.Graph()
         self._regions = {}
-        size = (pygame.display.Info().current_w, pygame.display.Info().current_h)
-        self._regions["tl1"] = Region.Region(name="tl1", position=(int(size[0] * .01), int(size[1] * .08)))
-        self._regions["tl2"] = Region.Region(name="tl2", position=(int(size[0] * .1), int(size[1] * .07)))
-        self._regions["tl3"] = Region.Region(name="tl3", position=(int(size[0] * .11), int(size[1] * .13)))
-        self._regions["tl4"] = Region.Region(name="tl4", position=(int(size[0] * .07), int(size[1] * .11)))
-        self._regions["tl5"] = Region.Region(name="tl5", position=(int(size[0] * .16), int(size[1] * .15)))
-        self._regions["tl6"] = Region.Region(name="tl6", position=(int(size[0] * .04), int(size[1] * .14)))
+        size = (pygame.display.Info().current_w,\
+                pygame.display.Info().current_h)
+        self._regions["tl1"] = Region.Region(name="tl1", position=(int(size[0]\
+                                                 * .01), int(size[1] * .08)))
+        self._regions["tl2"] = Region.Region(name="tl2", position=(int(size[0]\
+                                                 * .1), int(size[1] * .07)))
+        self._regions["tl3"] = Region.Region(name="tl3", position=(int(size[0]\
+                                                 * .11), int(size[1] * .13)))
+        self._regions["tl4"] = Region.Region(name="tl4", position=(int(size[0]\
+                                                 * .07), int(size[1] * .11)))
+        self._regions["tl5"] = Region.Region(name="tl5", position=(int(size[0]\
+                                                 * .16), int(size[1] * .15)))
+        self._regions["tl6"] = Region.Region(name="tl6", position=(int(size[0]\
+                                                 * .04), int(size[1] * .14)))
 
-        self._regions["ce1"] = Region.Region(name="ce1", position=(int(size[0] * .41), int(size[1] * .52)))
-        self._regions["ce2"] = Region.Region(name="ce2", position=(int(size[0] * .53), int(size[1] * .56)))
-        self._regions["ce3"] = Region.Region(name="ce3", position=(int(size[0] * .57), int(size[1] * .42)))
-        self._regions["ce4"] = Region.Region(name="ce4", position=(int(size[0] * .48), int(size[1] * .49)))
-        self._regions["ce5"] = Region.Region(name="ce5", position=(int(size[0] * .53), int(size[1] * .51)))
-        self._regions["ce6"] = Region.Region(name="ce6", position=(int(size[0] * .52), int(size[1] * .47)))
-        self._regions["ce7"] = Region.Region(name="ce7", position=(int(size[0] * .43), int(size[1] * .44)))
+        self._regions["ce1"] = Region.Region(name="ce1", position=(int(size[0]\
+                                                 * .41), int(size[1] * .52)))
+        self._regions["ce2"] = Region.Region(name="ce2", position=(int(size[0]\
+                                                 * .53), int(size[1] * .56)))
+        self._regions["ce3"] = Region.Region(name="ce3", position=(int(size[0]\
+                                                 * .57), int(size[1] * .42)))
+        self._regions["ce4"] = Region.Region(name="ce4", position=(int(size[0]\
+                                                 * .48), int(size[1] * .49)))
+        self._regions["ce5"] = Region.Region(name="ce5", position=(int(size[0]\
+                                                 * .53), int(size[1] * .51)))
+        self._regions["ce6"] = Region.Region(name="ce6", position=(int(size[0]\
+                                                 * .52), int(size[1] * .47)))
+        self._regions["ce7"] = Region.Region(name="ce7", position=(int(size[0]\
+                                                 * .43), int(size[1] * .44)))
 
         for region in self._regions.items():
             self._graph.add_node(region[1])

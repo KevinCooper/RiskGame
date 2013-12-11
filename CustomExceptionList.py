@@ -6,27 +6,24 @@
 @purpose: This file contains classes for multiple different custom exceptions\
  that can be implemented throughout the project.
 '''
-import types
 
 
 class AbstractBaseException(Exception):
 
     def __init__(self, msg):
-        self.msg = msg
+        '''
+        _msg - string
+        '''
+        self._msg = msg
 
     def handleItself(self):
-        print("An unknown exception occurred: %r" % (self.msg))
+        print("An unknown exception occurred: %r" % (self._msg))
 
 
 class DetailedException(AbstractBaseException):
 
     def handleItself(self):
-        if type(self.msg) is types.StringType:
-            print("The error that occurred is described by:\n %s" % (self.msg))
-        elif type(self.msg) is types.IntType:
-            print("The error that occurred is described by:\n %d" % (self.msg))
-        else:
-            print("The error that occurred is described by:\n %r" % (self.msg))
+        print("The error that occurred is described by:\n %r" % (self._msg))
 
 
 class TooFewPiecesException(AbstractBaseException):
@@ -35,5 +32,6 @@ class TooFewPiecesException(AbstractBaseException):
 
 
 class TooFewCardsException(AbstractBaseException):
+    ''' Not implemented'''
     def handleItself(self):
         print("Too few cards exception hit\n %s", (self.message))
