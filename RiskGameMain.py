@@ -47,12 +47,15 @@ def menu(screen, options):
 
 
 def setupGameMusic():
-    if(not pygame.mixer.music.get_busy()):
-        pygame.mixer.music.load(os.path.join('resources', \
-            "Daft Punk - Around the World.mp3"))
-        pygame.mixer.music.play(100)
-    else:
-        pygame.mixer.music.stop()
+    try:
+        if(not pygame.mixer.music.get_busy()):
+            pygame.mixer.music.load(os.path.join('resources', \
+                        "Daft Punk - Around the World.mp3"))
+            pygame.mixer.music.play(100)
+        else:
+            pygame.mixer.music.stop()
+    except:
+        pass
 
 
 if __name__ == '__main__':

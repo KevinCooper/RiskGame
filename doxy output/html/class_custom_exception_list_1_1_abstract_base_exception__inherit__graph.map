@@ -1,0 +1,5 @@
+<map id="CustomExceptionList.AbstractBaseException" name="CustomExceptionList.AbstractBaseException">
+<area shape="rect" id="node3" href="$class_custom_exception_list_1_1_detailed_exception.html" title="{CustomExceptionList.Detailed\lException\n||+ handleItself()\l}" alt="" coords="5,286,203,378"/>
+<area shape="rect" id="node4" href="$class_custom_exception_list_1_1_too_few_cards_exception.html" title="{CustomExceptionList.TooFew\lCardsException\n||+ handleItself()\l}" alt="" coords="227,286,421,378"/>
+<area shape="rect" id="node5" href="$class_custom_exception_list_1_1_too_few_pieces_exception.html" title="{CustomExceptionList.TooFew\lPiecesException\n||+ handleItself()\l}" alt="" coords="445,286,640,378"/>
+</map>

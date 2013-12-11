@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$class_custom_exception_list_1_1_abstract_base_exception.html" title="CustomExceptionList.Abstract\lBaseException" alt="" coords="134,70,333,111"/>
+<area shape="rect" id="node3" href="$class_custom_exception_list_1_1_detailed_exception.html" title="CustomExceptionList.Detailed\lException" alt="" coords="381,5,579,46"/>
+<area shape="rect" id="node4" href="$class_custom_exception_list_1_1_too_few_cards_exception.html" title="CustomExceptionList.TooFew\lCardsException" alt="" coords="383,70,577,111"/>
+<area shape="rect" id="node5" href="$class_custom_exception_list_1_1_too_few_pieces_exception.html" title="CustomExceptionList.TooFew\lPiecesException" alt="" coords="383,135,577,177"/>
+</map>
