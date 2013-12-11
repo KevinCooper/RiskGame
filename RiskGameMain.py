@@ -44,13 +44,19 @@ def menu(screen):
                
         
         pygame.display.flip()
+        
+def setupGameMusic(play):
+    if(play == True):
+        pygame.mixer.music.load(os.path.join('resources',"Daft Punk - Around the World.mp3"))
+        pygame.mixer.music.play(100)
+    else:
+        pygame.mixer.music.stop()
 
 
 if __name__ == '__main__':
+    pygame.init()
     GameScreen = RiskGUI.RiskGUI()
     clock = pygame.time.Clock()
-    pygame.mixer.music.load(os.path.join('resources',"Daft Punk - Around the World.mp3"))
-    pygame.mixer.music.play(100)
     menu(GameScreen.screen)
     board = RiskBoard.RiskBoard(GameScreen.size)  
     dice = Dice.Dice(6)
@@ -93,7 +99,7 @@ if __name__ == '__main__':
                 exit(0)
             elif (gotEvent[0] == "SpaceBar"):
                 order = (order + 1) % (len(players))
-                players[order].addPieces(5)  #Change this to be dynamic later!!!!!
+                players[order].addPieces(board.getCountRegions(players[order]))  
             elif (gotEvent[0] == "Region"):
                 # print gotEvent
                 if(gotEvent[1] == "Left"):

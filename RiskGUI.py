@@ -5,21 +5,13 @@
 @class: CS 359
 '''
 import pygame
-import ctypes
 import os
 class RiskGUI(object):
 
     def __init__(self):
-        '''Reference for screen width/height
-        http://stackoverflow.com/questions/3129322/how-do-i-get-monitor-resolution-in-python'''
-        # user32 = ctypes.windll.user32
-        # screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
-        '''End Reference'''
-        pygame.init()
-        # self.size = self.width, self.height = screensize[0], screensize[1]
-        self.size = (1024, 768)
+        self.size = (pygame.display.Info().current_w, pygame.display.Info().current_h)
         # Draws the board
-        self.screen         = pygame.display.set_mode(self.size)
+        self.screen         = pygame.display.set_mode(self.size, pygame.FULLSCREEN)
         pygame.display.set_caption("Kevin Cooper CS359 Project")
         self.white          = 255, 255, 255
         self.black          = 0, 0, 0

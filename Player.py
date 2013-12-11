@@ -4,7 +4,6 @@
 @date: 01 Dec 13
 @class: CS 359
 '''
-import Card
 import CustomExceptionList as CEL
 
 class Player:

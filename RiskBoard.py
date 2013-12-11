@@ -38,6 +38,16 @@ class RiskBoard:
         else:
             raise CEL.DetailedException("Get _regions was called on a board that had no _regions!")
         
+    def getCountRegions(self, player):
+        if self._regions != None:
+            count = 0
+            for region in self._regions.items():
+                if region[1].getPlayer() == player:
+                    count = count + 1
+            return count
+        else:
+            raise CEL.DetailedException("Get _regions was called on a board that had no _regions!")
+        
     def getNeighbors(self, region):
         if region != None:
             return self._graph.neighbors(self._regions[region])
