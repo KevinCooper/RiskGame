@@ -106,8 +106,7 @@ if __name__ == '__main__':
             if (gotEvent == None):
                 pass
             elif (gotEvent[0] == "Help"):
-                menu(GameScreen.screen, ("Back", "Toggle Music", "Toggle \
-                    Fullscreen", "Quit"))
+                menu(GameScreen.screen, ("Back", "Toggle Music", "Quit"))
             elif (gotEvent[0] == "Exit"):
                 exit(0)
             elif (gotEvent[0] == "SpaceBar"):

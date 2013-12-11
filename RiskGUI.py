@@ -5,7 +5,8 @@
 @class: CS 359
 '''
 import pygame
-import os
+
+
 class RiskGUI(object):
 
     def __init__(self):
@@ -21,11 +22,10 @@ class RiskGUI(object):
         self.green = 0, 255, 0
         self.font = pygame.font.SysFont("monospace", 15)
         self.screen.fill(self.white)
-        
-        
+
     def clearScreen(self):
         self.screen.fill(self.white)
-    
+
     def drawBoard(self, board):
         for region in board.getRegions():
             for neighbor in board.getNeighbors(region[0]):
@@ -33,13 +33,12 @@ class RiskGUI(object):
         for region in board.getRegions(): 
             region[1].draw(self.screen)
             self.screen.blit(self.font.render(str(region[1].getUnits()), 1, self.black), (region[1].getCenterPosition()[0] + 10, region[1].getCenterPosition()[1] - 25))
-        
+
     def drawTurn(self, board, player, pieces):
         self.screen.blit(self.font.render(str(player), 1, self.black), (10, 10))
         self.screen.blit(self.font.render("You can place this many pieces: " + str(pieces), 1, self.black), (10, 25))
-        self.screen.blit(self.font.render("Press ESC to quit.", 1, self.black), (10, 40))
-                
-                
+        #self.screen.blit(self.font.render("Press ESC to quit.", 1, self.black), (10, 40))
+
     def battleSequence(self, AgressorRegion, DefenderRegion, Dice):
         if(AgressorRegion.canAttack()):
             if(Dice.rollDice() > Dice.rollDice()):
@@ -52,21 +51,23 @@ class RiskGUI(object):
             else:
                 AgressorRegion.setAnimate()
                 AgressorRegion.subUnits(1)
-    
+
     def moveSequence(self, sourceRegion, destRegion):
         if(sourceRegion.canMove()):
             sourceRegion.subUnits(1)
             destRegion.addUnits(1)
             # Fancy animation here
-    
-    def resolveEvent(self, board, event):          
+
+    def resolveEvent(self, board, event):
         # Handle key events
-        if event.type == pygame.KEYUP: 
+        if event.type == pygame.KEYUP:
             if event.key == pygame.K_ESCAPE:
                 return ("Exit", "Junk")
             if  event.key == pygame.K_SPACE:
-                return ("SpaceBar", "Junk")  
-        # Handle mouse events    
+                return ("SpaceBar", "Junk")
+            if  event.key == pygame.K_h:
+                return ("Help", "Junk")
+        # Handle mouse events
         if event.type == pygame.MOUSEBUTTONUP:
             mousex, mousey = event.pos
             # print event.button
@@ -80,8 +81,3 @@ class RiskGUI(object):
                     if(region[1].wasClicked(mousex, mousey)):
                         return ("Region", "Right", region)
                 return ("Right", mousex, mousey)
-                        
-
-    
-
-        

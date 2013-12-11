@@ -1,6 +1,6 @@
-# Menu class taken from http://scripters-corner.net/2013/04/11/creating-a-menu-in-pygame/
-
 import pygame
+
+
 class Menu:
     '''
     The Menu should be initalized with a list of menu entries
@@ -32,7 +32,7 @@ class Menu:
             # calculate the height and startpoint of the menu
             # leave a space between each menu entry
             menuHeight = (fontSize + fontSpace) * len(menuEntries)
-            startY = self.background.get_height() / 2 - menuHeight / 2  
+            startY = self.background.get_height() / 2 - menuHeight / 2
 
             # listOfTextPositions=list()
             self.menuEntries = list()
@@ -45,16 +45,19 @@ class Menu:
                 startY = startY + fontSize + fontSpace
 
     def drawMenu(self):
-        self.active = True            
+        self.active = True
         screen = pygame.display.get_surface()
         screen.blit(self.background, (0, 0))
 
     def isActive(self):
         return self.active
+
     def activate(self,):
         self.active = True
+
     def deactivate(self):
         self.active = False
+
     def handleEvent(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN and self.isActive():
             # initiate with menu Item 0
@@ -68,11 +71,12 @@ class Menu:
                 # check if current event is in the text area 
                 if eventX > textPos.left and eventX < textPos.right \
                 and eventY > textPos.top and eventY < textPos.bottom:
-                    # if so fire new event, which states which menu item was clicked                        
+                    # if so fire new event, which states which menu item was clicked
                     menuEvent = pygame.event.Event(self.MENUCLICKEDEVENT, item=curItem, text=menuItem.get_text())
                     pygame.event.post(menuEvent)
                 curItem = curItem + 1
-                
+
+
 class MenuItem (pygame.font.Font):
     '''
     The Menu Item should be derived from the pygame Font class
@@ -85,9 +89,12 @@ class MenuItem (pygame.font.Font):
         else:
             self.textSurface = self.render(self.text, antialias, (255, 255, 255), background)
         self.position = self.textSurface.get_rect(centerx=position[0], centery=position[1])
+
     def get_pos(self):
         return self.position
+
     def get_text(self):
         return self.text
+
     def get_surface(self):
         return self.textSurface

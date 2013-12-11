@@ -7,5 +7,3 @@ This is being programmed using python 2.7<br>
 Required libraries include:<br>
  * pygame<br>
  * networkx<br>
- * random<br>
- * types<br>
