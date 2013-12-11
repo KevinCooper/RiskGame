@@ -13,6 +13,7 @@ import Dice
 import MenuStuff
 import os
 
+
 def menu(screen, options):
     myMenu = MenuStuff.Menu(options)
     myMenu.drawMenu()
@@ -35,26 +36,35 @@ def menu(screen, options):
                     exit(0)
                 elif event.text == "Start Game":
                     return
-               
-        
+                elif event.text == "Toggle Music":
+                    setupGameMusic()
+                    return
+                elif event.text == "Toggle Fullscreen":
+                    pass
+                elif event.text == "Back":
+                    return
         pygame.display.flip()
-        
-def setupGameMusic(play):
-    if(play == True):
-        pygame.mixer.music.load(os.path.join('resources',"Daft Punk - Around the World.mp3"))
+
+
+def setupGameMusic():
+    if(not pygame.mixer.music.get_busy()):
+        pygame.mixer.music.load(os.path.join('resources', \
+            "Daft Punk - Around the World.mp3"))
         pygame.mixer.music.play(100)
     else:
         pygame.mixer.music.stop()
 
 
 if __name__ == '__main__':
+    play = True
+    fullscreen = True
     pygame.init()
     GameScreen = RiskGUI.RiskGUI()
     clock = pygame.time.Clock()
     menu(GameScreen.screen, ("Start Game", "Quit"))
-    board = RiskBoard.RiskBoard(GameScreen.size)  
+    board = RiskBoard.RiskBoard(GameScreen.size)
     dice = Dice.Dice(6)
-    setupGameMusic(True)
+    setupGameMusic()
     # Setup two players for testing
     players = []
     one = Player.Player((255, 0, 0), 4, "Player 1")
@@ -64,13 +74,13 @@ if __name__ == '__main__':
     order = 0
     playerPicker = 0
     for region in board.getRegions():
-        playerPicker = (playerPicker +1)% len(players)
+        playerPicker = (playerPicker + 1) % len(players)
         if(playerPicker == 1):
             region[1].setPlayer(players[0])
         else:
             region[1].setPlayer(players[1])
         region[1].addUnits(3)
-    
+
     # Setup for main game logic loop
     GameScreen.drawBoard(board)
     pygame.display.flip()  # update the screen
@@ -87,26 +97,36 @@ if __name__ == '__main__':
                 if(count == len(players)):
                     print("There are no possible moves left!")
                     exit(1)  # None of the players has a valid move
-            if(board.getCountRegions(players[order]) == len(board.getRegions())):
-                menu(GameScreen.screen, (str(players[order]) + " Won!", "Quit")) #The player won!!!!!!
+            if(board.getCountRegions(players[order]) \
+                    == len(board.getRegions())):
+                menu(GameScreen.screen, (str(players[order]) +\
+                     " Won!", "Quit"))
             gotEvent = GameScreen.resolveEvent(board, event)
             # print event
             if (gotEvent == None):
                 pass
+            elif (gotEvent[0] == "Help"):
+                menu(GameScreen.screen, ("Back", "Toggle Music", "Toggle \
+                    Fullscreen", "Quit"))
             elif (gotEvent[0] == "Exit"):
                 exit(0)
             elif (gotEvent[0] == "SpaceBar"):
                 order = (order + 1) % (len(players))
-                players[order].addPieces(board.getCountRegions(players[order]))  
+                players[order].addPieces(board.getCountRegions(players[order]))
             elif (gotEvent[0] == "Region"):
                 # print gotEvent
                 if(gotEvent[1] == "Left"):
-                    if(gotEvent[2][1].getPlayer() == players[order]and source == None):
+                    if(gotEvent[2][1].getPlayer() == players[order]and \
+                            source == None):
                         source = gotEvent[2][1]
-                    elif(gotEvent[2][1].validAttack(players[order]) and source != None and source != gotEvent[2][1] and board.areNeighbors(source, gotEvent[2][1])):
+                    elif(gotEvent[2][1].validAttack(players[order]) and \
+                            source != None and source != gotEvent[2][1] and \
+                            board.areNeighbors(source, gotEvent[2][1])):
                         GameScreen.battleSequence(source, gotEvent[2][1], dice)
                         source = None
-                    elif(gotEvent[2][1].validMove(players[order]) and source != None and source != gotEvent[2][1] and board.areNeighbors(source, gotEvent[2][1])):
+                    elif(gotEvent[2][1].validMove(players[order]) and \
+                            source != None and source != gotEvent[2][1] and \
+                            board.areNeighbors(source, gotEvent[2][1])):
                         GameScreen.moveSequence(source, gotEvent[2][1])
                         source = None
                     else:
@@ -115,12 +135,13 @@ if __name__ == '__main__':
                     if(gotEvent[2][1].getPlayer() == players[order]):
                         if(players[order].removePieces(1)):
                             gotEvent[2][1].addUnits(1)
-        # All clock based events move down here         
+        # All clock based events move down here
         GameScreen.drawBoard(board)
-        GameScreen.drawTurn(board, str(players[order]) + " turn!", players[order].getPieces())  
+        GameScreen.drawTurn(board, str(players[order]) + " turn!", \
+                            players[order].getPieces())
         time = clock.tick(1000)  # Slow down the clock 1000/100 = 10 FPS
         for region in board.getRegions():
-            region[1].update(time, GameScreen.screen)        
+            region[1].update(time, GameScreen.screen)
         pygame.display.flip()
 
     exit(0)
