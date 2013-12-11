@@ -73,6 +73,5 @@ class Player:
         Subtracts the given number to the total number of pieces the player has.
         '''
         if(self._pieces - numberToLose < 0):
-            return False
+            self._pieces = 0
         self._pieces -= numberToLose
-        return True
