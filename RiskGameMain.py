@@ -50,8 +50,14 @@ def setupGameMusic():
     try:
         if(not pygame.mixer.music.get_busy()):
             pygame.mixer.music.load(os.path.join('resources', \
-                        "Daft Punk - Around the World.mp3"))
-            pygame.mixer.music.play(100)
+                "Dexter_Britain_-_01_-_Shooting_Star.mp3"))
+            pygame.mixer.music.play()
+            pygame.mixer.music.queue(os.path.join('resources', \
+                "Rolemusic_-_04_-_The_Pirate_And_The_Dancer.mp3"))
+            pygame.mixer.music.queue(os.path.join('resources', \
+                "Lomz__Lezet_-_08_-_Cod.mp3"))
+            pygame.mixer.music.queue(os.path.join('resources', \
+                "Koona_-_02_-_Starkey.mp3"))
         else:
             pygame.mixer.music.stop()
     except:
