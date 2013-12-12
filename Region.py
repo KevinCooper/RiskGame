@@ -5,7 +5,6 @@
 @class: CS 359
 @purpose:
 '''
-import CustomExceptionList as CEL
 import pygame
 import math
 import os
@@ -29,7 +28,8 @@ class Region(object):
         self._units = 0
         self._position = position
         try:
-            self.animated = AnimatedSprite.AnimatedSprite(self.load_sliced_sprites\
+            self.animated = AnimatedSprite.AnimatedSprite(\
+                            self.load_sliced_sprites\
                             (16, 16, 'explosions-sprite.png'), self._position)
             self._animated_pos = 0
             self._animated_len = len(self.load_sliced_sprites(16, 16, \
@@ -164,9 +164,6 @@ class Region(object):
 
         Returns whether the mouse coordinates are within the Region.
         '''
-        if(mouseX < 0 or mouseY < 0):
-            CEL.DetailedException("A mouse event was called on a region with a \
-            mouse value that was less than zero.")
         try:
             if (math.fabs(mouseX - self._position[0]) < 20 and \
                 math.fabs(mouseY - self._position[1]) < 20):

@@ -5,6 +5,7 @@
 @class: CS 359
 '''
 
+
 class Player:
     '''
     Class that contains information about a player

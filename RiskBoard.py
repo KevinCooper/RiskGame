@@ -25,8 +25,12 @@ class RiskBoard:
         self._graph = nx.Graph()
         self._regions = {}
         self._index = 0
-        size = (pygame.display.Info().current_w,\
+        try:
+            size = (pygame.display.Info().current_w,\
                 pygame.display.Info().current_h)
+        except:
+            size = (1024, 768)
+            pass
         self._regions["tl1"] = Region.Region(name="tl1", position=(int(size[0]\
                                                  * .01), int(size[1] * .08)))
         self._regions["tl2"] = Region.Region(name="tl2", position=(int(size[0]\
@@ -55,8 +59,8 @@ class RiskBoard:
         self._regions["ce7"] = Region.Region(name="ce7", position=(int(size[0]\
                                                  * .43), int(size[1] * .44)))
 
-        for region in self._regions.items():
-            self._graph.add_node(region[1])
+        for region in self:
+            self._graph.add_node(region)
 
         self._graph.add_edge(self._regions["tl5"], self._regions["ce7"])
         self._graph.add_edge(self._regions["tl1"], self._regions["tl2"])

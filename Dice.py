@@ -3,7 +3,7 @@
 @version: 0.0.1
 @date: 01 Dec 13
 @class: CS 359
-@purpose: This file contains the class for a simulated dice.  
+@purpose: This file contains the class for a simulated dice.
 '''
 import random
 import os
