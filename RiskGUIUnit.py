@@ -1,7 +1,7 @@
 '''
 Created on Dec 12, 2013
 
-@author: C15JREYNOR
+@author: Kevin Cooper
 '''
 import unittest
 import RiskGUI
