@@ -76,13 +76,13 @@ if __name__ == '__main__':
     players.append(two)
     order = 0
     playerPicker = 0
-    for region in board.getRegions():
+    for region in board:
         playerPicker = (playerPicker + 1) % len(players)
         if(playerPicker == 1):
-            region[1].setPlayer(players[0])
+            region.setPlayer(players[0])
         else:
-            region[1].setPlayer(players[1])
-        region[1].addUnits(3)
+            region.setPlayer(players[1])
+        region.addUnits(3)
 
     # Setup for main game logic loop
     GameScreen.drawBoard(board)
@@ -101,7 +101,7 @@ if __name__ == '__main__':
                     print("There are no possible moves left!")
                     exit(1)  # None of the players has a valid move
             if(board.getCountRegions(players[order]) \
-                    == len(board.getRegions())):
+                    == len(board)):
                 menu(GameScreen.screen, (str(players[order]) +\
                      " Won!", "Quit"))
             gotEvent = GameScreen.resolveEvent(board, event)
@@ -142,8 +142,8 @@ if __name__ == '__main__':
         GameScreen.drawTurn(board, str(players[order]) + " turn!", \
                             players[order].getPieces())
         time = clock.tick(1000)  # Slow down the clock 1000/100 = 10 FPS
-        for region in board.getRegions():
-            region[1].update(time, GameScreen.screen)
+        for region in board:
+            region.update(time, GameScreen.screen)
         pygame.display.flip()
 
     exit(0)

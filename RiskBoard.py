@@ -25,6 +25,7 @@ class RiskBoard:
         '''
         self._graph = nx.Graph()
         self._regions = {}
+        self._index = 0
         size = (pygame.display.Info().current_w,\
                 pygame.display.Info().current_h)
         self._regions["tl1"] = Region.Region(name="tl1", position=(int(size[0]\
@@ -75,8 +76,31 @@ class RiskBoard:
         self._graph.add_edge(self._regions["ce2"], self._regions["ce5"])
         self._graph.add_edge(self._regions["ce1"], self._regions["ce4"])
 
+    def __iter__(self):
+        return self
+
+    def __len__(self):
+        return len(self._regions.items())
+
+    def next(self):
+        '''
+        return - Region object
+
+        Custom iterator that removes the need to do the strange [1] syntax to \
+        only get the region from the dictionary when you run .items() on it.
+        '''
+        if(self._index == len(self._regions)):
+            self._index = 0
+            raise StopIteration
+        temp = self._regions.items()[self._index][1]
+        self._index = self._index + 1
+        return temp
+
     def getRegions(self):
         '''
+        NO LONGER IMPLEMENTED
+        Custom iterator removes need for this
+
         return - a list of tuples
 
         Returns a list of all the region items on the board.  The format for\
@@ -99,8 +123,8 @@ class RiskBoard:
         '''
         if self._regions != None:
             count = 0
-            for region in self._regions.items():
-                if region[1].getPlayer() == player:
+            for region in self:
+                if region.getPlayer() == player:
                     count = count + 1
             return count
         else:
