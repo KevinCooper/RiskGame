@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -90,11 +91,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_f"><span>f</span></a></li>
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_h"><span>h</span></a></li>
+      <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_l"><span>l</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_n"><span>n</span></a></li>
+      <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
+      <li><a href="#index_t"><span>t</span></a></li>
       <li><a href="#index_u"><span>u</span></a></li>
       <li><a href="#index_v"><span>v</span></a></li>
       <li><a href="#index_w"><span>w</span></a></li>
@@ -120,7 +124,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -130,19 +134,27 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
+<div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a class="anchor" id="index__"></a>- _ -</h3><ul>
 <li>__eq__()
 : <a class="el" href="class_region_1_1_region.html#a874e9a7fd668fd6f72e4c17e53839cdf">Region.Region</a>
 </li>
 <li>__init__()
-: <a class="el" href="class_dice_1_1_dice.html#afd49683d05631a4b4b587b58bb14fb68">Dice.Dice</a>
-, <a class="el" href="class_player_1_1_player.html#a24b6d9aadd8f9a4d57ad531a7172209b">Player.Player</a>
-, <a class="el" href="class_risk_g_u_i_1_1_risk_g_u_i.html#a245332f719ada6657b16145752101698">RiskGUI.RiskGUI</a>
-, <a class="el" href="class_risk_board_1_1_risk_board.html#a1c8dfe954c9737fe4ae87187b6ab5169">RiskBoard.RiskBoard</a>
-, <a class="el" href="class_region_1_1_region.html#a405ca9466457321a94f609697d4a2161">Region.Region</a>
+: <a class="el" href="class_animated_sprite_1_1_animated_sprite.html#ab45907c360560ddfdea6f3b2c9d14e8d">AnimatedSprite.AnimatedSprite</a>
 , <a class="el" href="class_menu_stuff_1_1_menu.html#aafe88b4b5da00cc5c6f7d0f5c5b11eb9">MenuStuff.Menu</a>
+, <a class="el" href="class_risk_board_1_1_risk_board.html#a1c8dfe954c9737fe4ae87187b6ab5169">RiskBoard.RiskBoard</a>
+, <a class="el" href="class_risk_g_u_i_1_1_risk_g_u_i.html#a245332f719ada6657b16145752101698">RiskGUI.RiskGUI</a>
+, <a class="el" href="class_menu_stuff_1_1_menu_item.html#a583dc6cd151f3877f2dd620f23c7a528">MenuStuff.MenuItem</a>
+, <a class="el" href="class_dice_1_1_dice.html#afd49683d05631a4b4b587b58bb14fb68">Dice.Dice</a>
+, <a class="el" href="class_region_1_1_region.html#a405ca9466457321a94f609697d4a2161">Region.Region</a>
+, <a class="el" href="class_player_1_1_player.html#a24b6d9aadd8f9a4d57ad531a7172209b">Player.Player</a>
+</li>
+<li>__iter__()
+: <a class="el" href="class_risk_board_1_1_risk_board.html#ad670369ad0cd230aa4ea3c4681dcffab">RiskBoard.RiskBoard</a>
+</li>
+<li>__len__()
+: <a class="el" href="class_risk_board_1_1_risk_board.html#aaff88c0551f90243e6a54b39e3ee36a4">RiskBoard.RiskBoard</a>
 </li>
 <li>__str__()
 : <a class="el" href="class_region_1_1_region.html#afa74c021a181b542f13895a5da13c56d">Region.Region</a>
@@ -152,6 +164,12 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>activate()
+: <a class="el" href="class_menu_stuff_1_1_menu.html#a46fbf5ed46e85155c557a1d509232551">MenuStuff.Menu</a>
+</li>
+<li>active
+: <a class="el" href="class_menu_stuff_1_1_menu.html#a4f2dfa55620de7cb16d0df2453bf41c4">MenuStuff.Menu</a>
+</li>
 <li>addCard()
 : <a class="el" href="class_player_1_1_player.html#a8ac297a15d9dd36bcbeeec0af77499ad">Player.Player</a>
 </li>
@@ -161,6 +179,15 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>addUnits()
 : <a class="el" href="class_region_1_1_region.html#a6fd5779adf18c81cae91a8cfb00ad747">Region.Region</a>
 </li>
+<li>animate
+: <a class="el" href="class_region_1_1_region.html#a0369dc51c4ffee718b34300f0ebcc17b">Region.Region</a>
+</li>
+<li>animated
+: <a class="el" href="class_region_1_1_region.html#a40ca283e45c57b6d707377a8cb4c9f83">Region.Region</a>
+</li>
+<li>area
+: <a class="el" href="class_menu_stuff_1_1_menu.html#a3b93449bf44134cb200e1d0ff5be8ccf">MenuStuff.Menu</a>
+</li>
 <li>areNeighbors()
 : <a class="el" href="class_risk_board_1_1_risk_board.html#a6a3dbd1b4e9031158d4aa19449ebd172">RiskBoard.RiskBoard</a>
 </li>
@@ -168,6 +195,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
+<li>background
+: <a class="el" href="class_menu_stuff_1_1_menu.html#a32bae6d2976d4d445c386c19dc75755d">MenuStuff.Menu</a>
+</li>
 <li>battleSequence()
 : <a class="el" href="class_risk_g_u_i_1_1_risk_g_u_i.html#aa7a73dc7edda04e32adf52faef21c9b6">RiskGUI.RiskGUI</a>
 </li>
@@ -188,11 +218,17 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>deactivate()
+: <a class="el" href="class_menu_stuff_1_1_menu.html#ab0d51331c65a14ca3d1e9f0563c03a55">MenuStuff.Menu</a>
+</li>
 <li>draw()
 : <a class="el" href="class_region_1_1_region.html#ab73a535b155f2862c9b87cbc4f075cfa">Region.Region</a>
 </li>
 <li>drawBoard()
 : <a class="el" href="class_risk_g_u_i_1_1_risk_g_u_i.html#a093fbb63ad6314baa01ce6b74be10386">RiskGUI.RiskGUI</a>
+</li>
+<li>drawMenu()
+: <a class="el" href="class_menu_stuff_1_1_menu.html#a444ed1e68a68577c9db3d97eee3d4277">MenuStuff.Menu</a>
 </li>
 <li>drawTurn()
 : <a class="el" href="class_risk_g_u_i_1_1_risk_g_u_i.html#ae832d9140a6324a9b05a9e0fecbcb55a">RiskGUI.RiskGUI</a>
@@ -208,6 +244,15 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>get_pos()
+: <a class="el" href="class_menu_stuff_1_1_menu_item.html#af28f90b9868b3dedac8cced610ac66f6">MenuStuff.MenuItem</a>
+</li>
+<li>get_surface()
+: <a class="el" href="class_menu_stuff_1_1_menu_item.html#ae31c1f707492a3881a89a6ee59b59037">MenuStuff.MenuItem</a>
+</li>
+<li>get_text()
+: <a class="el" href="class_menu_stuff_1_1_menu_item.html#ab7f2fef3fcd68dfa2368b069fba6a556">MenuStuff.MenuItem</a>
+</li>
 <li>getCards()
 : <a class="el" href="class_player_1_1_player.html#aa56f50e5a13feaf3b2bd8ea2a4e5c9de">Player.Player</a>
 </li>
@@ -242,8 +287,21 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
+<li>handleEvent()
+: <a class="el" href="class_menu_stuff_1_1_menu.html#ab078e8e326feedbeab5e9692e2e20c29">MenuStuff.Menu</a>
+</li>
 <li>hasValidMove()
 : <a class="el" href="class_risk_board_1_1_risk_board.html#ab80f3f60c5358915db1e02d6e28928af">RiskBoard.RiskBoard</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>image
+: <a class="el" href="class_animated_sprite_1_1_animated_sprite.html#a1869258214af84fcb3533793473d87c5">AnimatedSprite.AnimatedSprite</a>
+</li>
+<li>isActive()
+: <a class="el" href="class_menu_stuff_1_1_menu.html#ad0db64430cc6afbb53ac8e52dea2d88d">MenuStuff.Menu</a>
 </li>
 </ul>
 
@@ -252,10 +310,19 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>load_sliced_sprites()
 : <a class="el" href="class_region_1_1_region.html#a470c72d5864326d7ae91da92fb5a24c3">Region.Region</a>
 </li>
+<li>location
+: <a class="el" href="class_animated_sprite_1_1_animated_sprite.html#aab4198602712d48d17b69edae88e556e">AnimatedSprite.AnimatedSprite</a>
+</li>
 </ul>
 
 
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
+<li>MENUCLICKEDEVENT
+: <a class="el" href="class_menu_stuff_1_1_menu.html#ac33421b2420cdec24f6de12a0df19791">MenuStuff.Menu</a>
+</li>
+<li>menuEntries
+: <a class="el" href="class_menu_stuff_1_1_menu.html#ae3ef4833b6bb76e318df0d32f2a26fe6">MenuStuff.Menu</a>
+</li>
 <li>moveSequence()
 : <a class="el" href="class_risk_g_u_i_1_1_risk_g_u_i.html#abb8cd3f246ef85c806f22afe38a0d14c">RiskGUI.RiskGUI</a>
 </li>
@@ -269,6 +336,13 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </ul>
 
 
+<h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>position
+: <a class="el" href="class_menu_stuff_1_1_menu_item.html#aa62d8709b06996f12f3f4cf5adc7ae27">MenuStuff.MenuItem</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
 <li>removeCard()
 : <a class="el" href="class_player_1_1_player.html#a9fe1a7875dea4cc0fd7da343f3c83d33">Player.Player</a>
@@ -278,6 +352,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </li>
 <li>removeUnits()
 : <a class="el" href="class_region_1_1_region.html#a8fc625603dfe1d1ab0069c0ae0f83d56">Region.Region</a>
+</li>
+<li>render()
+: <a class="el" href="class_animated_sprite_1_1_animated_sprite.html#a061093ecfdfbbd8e60777e751df06eb6">AnimatedSprite.AnimatedSprite</a>
 </li>
 <li>resolveEvent()
 : <a class="el" href="class_risk_g_u_i_1_1_risk_g_u_i.html#a98ec6ade4827c4dab564ab3709a0fa79">RiskGUI.RiskGUI</a>
@@ -304,9 +381,38 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </ul>
 
 
+<h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>testBoard()
+: <a class="el" href="class_risk_board_unit_1_1_test.html#aa8e5cbad7aa18cd761cc20c36d58bdc3">RiskBoardUnit.Test</a>
+</li>
+<li>testDiceAboveZero()
+: <a class="el" href="class_dice_unit_1_1_test.html#af666cbab5e6366d8122648eab1a37927">DiceUnit.Test</a>
+</li>
+<li>testDiceBelowMax()
+: <a class="el" href="class_dice_unit_1_1_test.html#aaf189bf940cd67736c05bcedef166fea">DiceUnit.Test</a>
+</li>
+<li>testPlayer()
+: <a class="el" href="class_player_unit_1_1_test.html#adae46809970512dda5722880b103929d">PlayerUnit.Test</a>
+</li>
+<li>testReigon()
+: <a class="el" href="class_region_unit_1_1_test.html#acc51bb4c6498d9e5fe76cca4966109c5">RegionUnit.Test</a>
+</li>
+<li>testRiskGUI()
+: <a class="el" href="class_risk_g_u_i_unit_1_1_test.html#a14de8ecda548c4298b2c1b14cdff7906">RiskGUIUnit.Test</a>
+</li>
+<li>text
+: <a class="el" href="class_menu_stuff_1_1_menu_item.html#a9865c7768125a80701dba446553f2fa6">MenuStuff.MenuItem</a>
+</li>
+<li>textSurface
+: <a class="el" href="class_menu_stuff_1_1_menu_item.html#a6e1c1f413d2113d78d064772403336ad">MenuStuff.MenuItem</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
 <li>update()
-: <a class="el" href="class_region_1_1_region.html#a1bf035647a8d697d159df487dd2aff88">Region.Region</a>
+: <a class="el" href="class_animated_sprite_1_1_animated_sprite.html#a86d78328e12d7aa257ffc61ea8221239">AnimatedSprite.AnimatedSprite</a>
+, <a class="el" href="class_region_1_1_region.html#a1bf035647a8d697d159df487dd2aff88">Region.Region</a>
 </li>
 </ul>
 
@@ -331,7 +437,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Dec 12 2013 02:47:55 for PEX 4 by
+    <li class="footer">Generated on Thu Dec 12 2013 02:59:19 for PEX 4 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

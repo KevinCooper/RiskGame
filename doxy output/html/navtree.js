@@ -3,7 +3,12 @@ var NAVTREE =
   [ "PEX 4", "index.html", [
     [ "Description", "md__c_1__users__c15_j_r_e_y_n_o_r_workspace_cs359_project__r_e_a_d_m_e.html", null ],
     [ "Packages", null, [
-      [ "Packages", "namespaces.html", "namespaces" ]
+      [ "Packages", "namespaces.html", "namespaces" ],
+      [ "Package Functions", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ]
+      ] ]
     ] ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
@@ -14,13 +19,16 @@ var NAVTREE =
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ]
       ] ]
+    ] ],
+    [ "Files", null, [
+      [ "File List", "files.html", "files" ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-".html"
+"_animated_sprite_8py.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

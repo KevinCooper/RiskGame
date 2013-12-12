@@ -1,5 +1,8 @@
 var searchData=
 [
+  ['get_5fpos',['get_pos',['../class_menu_stuff_1_1_menu_item.html#af28f90b9868b3dedac8cced610ac66f6',1,'MenuStuff::MenuItem']]],
+  ['get_5fsurface',['get_surface',['../class_menu_stuff_1_1_menu_item.html#ae31c1f707492a3881a89a6ee59b59037',1,'MenuStuff::MenuItem']]],
+  ['get_5ftext',['get_text',['../class_menu_stuff_1_1_menu_item.html#ab7f2fef3fcd68dfa2368b069fba6a556',1,'MenuStuff::MenuItem']]],
   ['getcards',['getCards',['../class_player_1_1_player.html#aa56f50e5a13feaf3b2bd8ea2a4e5c9de',1,'Player::Player']]],
   ['getcenterposition',['getCenterPosition',['../class_region_1_1_region.html#a4be9c9862ad31a5c19f18b3eb2949d3f',1,'Region::Region']]],
   ['getcolor',['getColor',['../class_player_1_1_player.html#a07c6f40e1128f12bb0246f352f9a4423',1,'Player::Player']]],

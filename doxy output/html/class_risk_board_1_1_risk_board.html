@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -93,7 +94,7 @@ $(document).ready(function(){initNavTree('class_risk_board_1_1_risk_board.html',
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -114,17 +115,17 @@ $(document).ready(function(){initNavTree('class_risk_board_1_1_risk_board.html',
 Collaboration diagram for RiskBoard.RiskBoard:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_risk_board_1_1_risk_board__coll__graph.png" border="0" usemap="#_risk_board_8_risk_board_coll__map" alt="Collaboration graph"/></div>
+<map name="_risk_board_8_risk_board_coll__map" id="_risk_board_8_risk_board_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1c8dfe954c9737fe4ae87187b6ab5169"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_risk_board_1_1_risk_board.html#a1c8dfe954c9737fe4ae87187b6ab5169">__init__</a></td></tr>
 <tr class="separator:a1c8dfe954c9737fe4ae87187b6ab5169"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad670369ad0cd230aa4ea3c4681dcffab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad670369ad0cd230aa4ea3c4681dcffab"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>__iter__</b></td></tr>
+<tr class="memitem:ad670369ad0cd230aa4ea3c4681dcffab"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_risk_board_1_1_risk_board.html#ad670369ad0cd230aa4ea3c4681dcffab">__iter__</a></td></tr>
 <tr class="separator:ad670369ad0cd230aa4ea3c4681dcffab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaff88c0551f90243e6a54b39e3ee36a4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaff88c0551f90243e6a54b39e3ee36a4"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>__len__</b></td></tr>
+<tr class="memitem:aaff88c0551f90243e6a54b39e3ee36a4"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_risk_board_1_1_risk_board.html#aaff88c0551f90243e6a54b39e3ee36a4">__len__</a></td></tr>
 <tr class="separator:aaff88c0551f90243e6a54b39e3ee36a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a200f84d5a1e91a2a291e24068ad97fa6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_risk_board_1_1_risk_board.html#a200f84d5a1e91a2a291e24068ad97fa6">next</a></td></tr>
 <tr class="separator:a200f84d5a1e91a2a291e24068ad97fa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -174,6 +175,38 @@ proportional to the size that is given.
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ad670369ad0cd230aa4ea3c4681dcffab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def RiskBoard.RiskBoard.__iter__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aaff88c0551f90243e6a54b39e3ee36a4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def RiskBoard.RiskBoard.__len__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a6a3dbd1b4e9031158d4aa19449ebd172"></a>
 <div class="memitem">
 <div class="memproto">
@@ -347,7 +380,7 @@ only get the region from the dictionary when you run .items() on it.
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>RiskBoard.py</li>
+<li><a class="el" href="_risk_board_8py.html">RiskBoard.py</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -355,7 +388,7 @@ only get the region from the dictionary when you run .items() on it.
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_risk_board.html">RiskBoard</a></li><li class="navelem"><a class="el" href="class_risk_board_1_1_risk_board.html">RiskBoard</a></li>
-    <li class="footer">Generated on Thu Dec 12 2013 02:47:55 for PEX 4 by
+    <li class="footer">Generated on Thu Dec 12 2013 02:59:19 for PEX 4 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>
