@@ -4,8 +4,6 @@
 @date: 01 Dec 13
 @class: CS 359
 '''
-import CustomExceptionList as CEL
-
 
 class Player:
     '''
@@ -52,11 +50,9 @@ class Player:
     def removeCard(self, card):
         ''' Not implemented'''
         try:
-            if(self._cards == []):
-                raise CEL.TooFewCardsException
             self._cards.remove(card)
-        except CEL.TooFewCardsException as error:
-            error.handleItself()
+        except:
+            pass
 
     def addPieces(self, numberToAdd):
         '''

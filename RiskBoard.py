@@ -6,7 +6,6 @@
 '''
 import Region
 import networkx as nx
-import CustomExceptionList as CEL
 import pygame
 
 
@@ -109,8 +108,7 @@ class RiskBoard:
         if self._regions != None:
             return self._regions.items()
         else:
-            raise CEL.DetailedException("Get _regions was called on a board\
-                 that had no _regions!")
+            pass
 
     def getCountRegions(self, player):
         '''
@@ -128,8 +126,7 @@ class RiskBoard:
                     count = count + 1
             return count
         else:
-            raise CEL.DetailedException("Get _regions was called on a\
-             board that had no _regions!")
+            pass
 
     def getNeighbors(self, region):
         '''
