@@ -17,8 +17,10 @@ class Test(unittest.TestCase):
         region1.addUnits(3)
         region2.addUnits(3)
         gui.moveSequence(region1, region2)
-        Test.assertEqual(self, region1.getUnits(), 2, "The first region has the incorrect amount of units")
-        Test.assertEqual(self, region2.getUnits(), 4, "The first region has the incorrect amount of units")
+        Test.assertEqual(self, region1.getUnits(), 2, "The first region has \
+            the incorrect amount of units")
+        Test.assertEqual(self, region2.getUnits(), 4, "The first region has \
+            the incorrect amount of units")
         '''
         Can't test battle, since the dice rolls are internal
         Can't test any of the GUI actions
