@@ -28,12 +28,15 @@ class Region(object):
         self._player = None
         self._units = 0
         self._position = position
-        self.animated = AnimatedSprite.AnimatedSprite(self.load_sliced_sprites\
+        try:
+            self.animated = AnimatedSprite.AnimatedSprite(self.load_sliced_sprites\
                             (16, 16, 'explosions-sprite.png'), self._position)
-        self._animated_pos = 0
-        self._animated_len = len(self.load_sliced_sprites(16, 16,\
+            self._animated_pos = 0
+            self._animated_len = len(self.load_sliced_sprites(16, 16, \
                                                        'explosions-sprite.png'))
-        self.animate = False
+            self.animate = False
+        except:
+            pass
 
     def __eq__(self, otherRegion):
         '''
@@ -144,7 +147,7 @@ class Region(object):
         Draws a circle of radius 10 of the players color to the given display \
         object.
         '''
-        pygame.draw.circle(screen, self._player.getColor(),\
+        pygame.draw.circle(screen, self._player.getColor(), \
                             self.getCenterPosition(), 10, 0)
         # screen.blit(self.image, self._position)
 
@@ -198,11 +201,12 @@ class Region(object):
         '''
         try:
             if(self._units - numberToRemove < 0):
-                raise CEL.TooFewPiecesException
-            self._units -= numberToRemove
-        except CEL.TooFewPiecesException as error:
-            error.handleItself()
-
+                self._units = 0
+            else:
+                self._units -= numberToRemove
+        except:
+            pass
+                
     def load_sliced_sprites(self, w, h, filename):
         # http://shinylittlething.com/2009/07/21/pygame-and-animated-sprites/
         '''
@@ -212,10 +216,13 @@ class Region(object):
             Master width must be len(frames)*frame.width
         Assuming you resources directory is named "resources"
         '''
-        images = []
-        master_image = pygame.image.load(os.path.join('resources', filename))\
-                                                              .convert_alpha()
-        master_width, master_height = master_image.get_size()
-        for i in xrange(int(master_width / w)):
-            images.append(master_image.subsurface((i * w, 0, w, h)))
-        return images
+        try:
+            images = []
+            master_image = pygame.image.load(os.path.join('resources', filename))\
+                .convert_alpha()
+            master_width, master_height = master_image.get_size()
+            for i in xrange(int(master_width / w)):
+                images.append(master_image.subsurface((i * w, 0, w, h)))
+            return images
+        except:
+            pass
