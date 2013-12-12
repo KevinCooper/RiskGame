@@ -18,19 +18,22 @@ class RiskGUI(object):
         fullscreen after determining the size of the screen from the computer.
         '''
         ##The 2 item integer tuple that represents the screen size
-        self.size = (pygame.display.Info().current_w, \
+        try:
+            self.size = (pygame.display.Info().current_w, \
                      pygame.display.Info().current_h)
-        ##Pygame display set to the size with fullscreen flags
-        self.screen = pygame.display.set_mode(self.size, pygame.FULLSCREEN)
-        pygame.display.set_caption("Kevin Cooper CS359 Project")
-        self._white = 255, 255, 255
-        self._black = 0, 0, 0
-        self._red = 255, 0, 0
-        self._blue = 0, 0, 255
-        self._green = 0, 255, 0
-        ##Pyagme sysfront, monospace, size 15
-        self.font = pygame.font.SysFont("monospace", 15)
-        self.screen.fill(self._white)
+            ##Pygame display set to the size with fullscreen flags
+            self.screen = pygame.display.set_mode(self.size, pygame.FULLSCREEN)
+            pygame.display.set_caption("Kevin Cooper CS359 Project")
+            self._white = 255, 255, 255
+            self._black = 0, 0, 0
+            self._red = 255, 0, 0
+            self._blue = 0, 0, 255
+            self._green = 0, 255, 0
+            ##Pyagme sysfront, monospace, size 15
+            self.font = pygame.font.SysFont("monospace", 15)
+            self.screen.fill(self._white)
+        except:
+            pass
 
     def clearScreen(self):
         '''

@@ -122,6 +122,14 @@ Collaboration diagram for RiskBoard.RiskBoard:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1c8dfe954c9737fe4ae87187b6ab5169"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_risk_board_1_1_risk_board.html#a1c8dfe954c9737fe4ae87187b6ab5169">__init__</a></td></tr>
 <tr class="separator:a1c8dfe954c9737fe4ae87187b6ab5169"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad670369ad0cd230aa4ea3c4681dcffab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad670369ad0cd230aa4ea3c4681dcffab"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>__iter__</b></td></tr>
+<tr class="separator:ad670369ad0cd230aa4ea3c4681dcffab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaff88c0551f90243e6a54b39e3ee36a4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaff88c0551f90243e6a54b39e3ee36a4"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>__len__</b></td></tr>
+<tr class="separator:aaff88c0551f90243e6a54b39e3ee36a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a200f84d5a1e91a2a291e24068ad97fa6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_risk_board_1_1_risk_board.html#a200f84d5a1e91a2a291e24068ad97fa6">next</a></td></tr>
+<tr class="separator:a200f84d5a1e91a2a291e24068ad97fa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2e9a8b63af5a465b4ad034effa98052"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_risk_board_1_1_risk_board.html#af2e9a8b63af5a465b4ad034effa98052">getRegions</a></td></tr>
 <tr class="separator:af2e9a8b63af5a465b4ad034effa98052"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a282462509dade76259b2d067059fd8f5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_risk_board_1_1_risk_board.html#a282462509dade76259b2d067059fd8f5">getCountRegions</a></td></tr>
@@ -279,7 +287,10 @@ the player
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">return - a list of tuples
+<pre class="fragment">NO LONGER IMPLEMENTED
+Custom iterator removes need for this
+
+return - a list of tuples
 
 Returns a list of all the region items on the board.  The format for\
 each tuple is ("name", Region)
@@ -317,6 +328,26 @@ Returns True if the player has a valid move, else False.
 </pre> 
 </div>
 </div>
+<a class="anchor" id="a200f84d5a1e91a2a291e24068ad97fa6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def RiskBoard.RiskBoard.next </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">return - Region object
+
+Custom iterator that removes the need to do the strange [1] syntax to \
+only get the region from the dictionary when you run .items() on it.
+</pre> 
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>RiskBoard.py</li>
 </ul>
@@ -326,7 +357,7 @@ Returns True if the player has a valid move, else False.
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_risk_board.html">RiskBoard</a></li><li class="navelem"><a class="el" href="class_risk_board_1_1_risk_board.html">RiskBoard</a></li>
-    <li class="footer">Generated on Wed Dec 11 2013 02:47:44 for PEX 4 by
+    <li class="footer">Generated on Thu Dec 12 2013 02:44:52 for PEX 4 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>
